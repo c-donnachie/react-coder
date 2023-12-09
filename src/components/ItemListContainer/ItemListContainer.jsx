@@ -1,5 +1,5 @@
 import React from "react"
-import { useData } from "../hooks/useData"
+import { useData } from "../../hooks/useData"
 
 export default function ItemListContainer({ greeting }) {
   const URL = "https://run.mocky.io/v3/7dd4f734-40e4-48d6-91ed-0f18314f1d54"

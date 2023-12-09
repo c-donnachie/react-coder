@@ -1,5 +1,5 @@
 import React from "react"
-import CartWidget from "./CartWidget"
+import CartWidget from "../CartWidget/CartWidget"
 
 export default function NavBar() {
   const categories = [
@@ -19,21 +19,17 @@ export default function NavBar() {
                 Productos
               </a>
               <div className="absolute left-4 z-10 mt-3 hidden bg-gray-800 text-white group-hover:block">
-                <a href="#" className="block px-4 py-2">
-                  T-shirts
-                </a>
-                <a href="#" className="block px-4 py-2">
-                  Hoodies
-                </a>
-                <a href="#" className="block px-4 py-2">
-                  Pants
-                </a>
+                {categories.map((category) => (
+                  <a key={category.id} href="#" className="block px-4 py-2">
+                    {category.name}
+                  </a>
+                ))}
               </div>
             </button>
           </div>
         </div>
         <div>
-          <input type="search" className="" placeholder="buscar" />
+          <input type="search" placeholder="buscar" />
         </div>
         <div>
           <button onClick={() => alert("Tienes: 0 elementos")}>
