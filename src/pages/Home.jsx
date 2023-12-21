@@ -10,7 +10,7 @@ export default function Home() {
     document.title = "Home | React Router"
   }, [])
 
-  const { productsData, loading } = useGetProducts(10)
+  const { productsData, loading } = useGetProducts(20)
 
   const content = loading ? (
     <div className="content">
@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div>
       <CategoriesWidget />
-      {content}
+      <ItemListContainer productsData={productsData} />
     </div>
   )
 }

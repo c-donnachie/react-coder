@@ -7,6 +7,7 @@ import { buttons } from "../mocks/buttons.js"
 import ItemDetailContainer from "../pages/ItemDetailContainer.jsx"
 import { useCategory } from "../hooks/useCategory.jsx"
 import Category from "../pages/Category.jsx"
+import Catalogo from "../components/Catalogo/Catalogo.jsx"
 
 export default function MainRouter() {
   const { category } = useCategory()
@@ -23,6 +24,7 @@ export default function MainRouter() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/nosotros" element={<Contact />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="/category" element={<Catalogo />} />
         <Route path="/category/:id" element={<Category />} />
       </Routes>
     </BrowserRouter>

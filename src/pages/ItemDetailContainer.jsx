@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom"
 import "./ItemDetailContainer.css"
 import Lottie from "lottie-react"
 import loadingGif from "../assets/animations/loading.json"
+import ItemDetail from "../components/ItemDetail/ItemDetail.jsx"
 
 export default function ItemDetailContainer() {
   const { id } = useParams()
@@ -17,13 +18,7 @@ export default function ItemDetailContainer() {
     </div>
   ) : (
     <div>
-      <Link to="/">
-        <button className="button">Atras</button>
-      </Link>
-      <h1 className="text">{productData.title}</h1>
-      <img src={productData.thumbnail} alt={productData.title} />
-      <p className="text">{productData.price}</p>
-      <p className="text">{productData.description}</p>
+      <ItemDetail productData={productData} />
     </div>
   )
 

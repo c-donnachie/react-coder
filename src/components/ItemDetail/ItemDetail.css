@@ -1,0 +1,22 @@
+.container-item-detail {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.container-item-detail {
+  display: grid;
+  grid-template-areas: "imagen columnaDerecha";
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+}
+
+.container-item-detail .item-detail {
+  grid-area: imagen;
+}
+
+.container-item-detail .item-detail-right {
+  grid-area: columnaDerecha;
+}

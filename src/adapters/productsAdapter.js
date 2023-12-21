@@ -3,7 +3,7 @@ export const adaptApiData = (apiData) => {
 
   const adaptedData = products.map((product) => ({
     id: product.id,
-    nombre: product.title,
+    name: product.title,
     price: product.price,
     image: product.thumbnail,
   }))

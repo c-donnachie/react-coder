@@ -2,6 +2,10 @@
   color: black;
 }
 
+.text-skeleton {
+  width: 90px;
+}
+
 .general-container {
   display: flex;
   width: 100%;
@@ -21,14 +25,13 @@
   width: 300px;
   background-color: #f8f8f8;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
 }
 
 .image {
   width: 300px;
   height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+  cursor: pointer;
 }
 
 .footer-product {
@@ -51,13 +54,20 @@
   color: black;
 }
 
+.price-skeleton {
+  width: 70px;
+}
+
 .button {
   background-color: #ffe144;
   width: 180px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+}
+
+.button-skeleton {
+  width: 180px;
 }
 
 .button:hover {

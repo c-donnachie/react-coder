@@ -6,7 +6,9 @@ import { Link } from "react-router-dom"
 export default function NavBar({ title, nameCategories, categories, buttons }) {
   const showCategories = categories.map((category, index) => (
     <div key={index}>
-      <Link to={`/category/${category}`}>{category}</Link>
+      <Link to={`/category/${category}`}>
+        <div className="text-white">{category}</div>
+      </Link>
     </div>
   ))
 
@@ -20,12 +22,14 @@ export default function NavBar({ title, nameCategories, categories, buttons }) {
     <nav>
       <div className="container-navbar">
         <Link to="/" className="brand">
-          {title}
+          <div className="text-white">{title}</div>
         </Link>
         <div className="content-container">
           <div class="group">
             <button class="button-style">
-              <a class="text-white">{nameCategories}</a>
+              <Link to="/category">
+                <div class="text-white">{nameCategories}</div>
+              </Link>
               {/* deslegable categorias */}
               <div class="dropdown-menu">
                 <div class="dropdown-menu__content">{showCategories}</div>
