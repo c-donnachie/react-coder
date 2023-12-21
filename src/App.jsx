@@ -1,12 +1,9 @@
-import NavBar from "./components/Navbar/NavBar"
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import MainRouter from "./router/MainRouter"
 
 export default function App() {
-  const format = (nombre) => `@${nombre}`
   return (
-    <div>
-      <NavBar />
-      <ItemListContainer greeting={"Productos"} />
-    </div>
+    <>
+      <MainRouter />
+    </>
   )
 }

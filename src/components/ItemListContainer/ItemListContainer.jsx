@@ -1,36 +1,26 @@
 import React from "react"
-import { useData } from "../../hooks/useData"
+import "./ItemListContainer.css"
+import { Link } from "react-router-dom"
 
-export default function ItemListContainer({ greeting }) {
-  const URL = "https://run.mocky.io/v3/7dd4f734-40e4-48d6-91ed-0f18314f1d54"
-  const { data, loading } = useData(URL)
+export default function ItemListContainer({ productsData }) {
+  const showProducts = productsData.map((product) => (
+    <div className="card-product" key={product.id}>
+      <Link to={`/item/${product.id}`}>
+        <img className="image" src={product.image} alt={product.name} />
+      </Link>
+      <h3 className="text">{product.name}</h3>
+      <div className="footer-product">
+        <div className="price-container">
+          <p className="price">${product.price}</p>
+        </div>
+        <button className="button text">Agregar al carrito</button>
+      </div>
+    </div>
+  ))
 
   return (
-    <div>
-      <section className="m-10">
-        <p>{greeting}</p>
-        {loading ? (
-          <div className="flex items-center justify-normal">
-            <p>Loading...</p>
-          </div>
-        ) : (
-          <>
-            {data && (
-              <div className="flex w-screen justify-center">
-                <section className="m-10 flex flex-row flex-wrap gap-10">
-                  {data.map((product) => (
-                    <div key={product.id}>
-                      <img className="h-[300px]" src={product.images[1]} alt={product.title} />
-                      <p>{product.title}</p>
-                      <p>Price: ${product.price}</p>
-                    </div>
-                  ))}
-                </section>
-              </div>
-            )}
-          </>
-        )}
-      </section>
+    <div className="general-container">
+      <div className="container">{showProducts}</div>
     </div>
   )
 }

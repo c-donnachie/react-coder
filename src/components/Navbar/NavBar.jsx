@@ -1,35 +1,42 @@
 import React from "react"
 import CartWidget from "../CartWidget/CartWidget"
+import "./NavBar.css"
+import { Link } from "react-router-dom"
 
-export default function NavBar() {
-  const categories = [
-    { id: 1, name: "t-shirts" },
-    { id: 2, name: "hoodies" },
-    { id: 3, name: "pants" },
-  ]
+export default function NavBar({ title, nameCategories, categories, buttons }) {
+  const showCategories = categories.map((category, index) => (
+    <div key={index}>
+      <Link to={`/category/${category}`}>{category}</Link>
+    </div>
+  ))
+
+  const showButtons = buttons.map((button) => (
+    <button key={button.id}>
+      <Link to={button.url}>{button.name}</Link>
+    </button>
+  ))
 
   return (
-    <nav className="sticky top-0 bg-gray-800 p-4">
-      <div className="container mx-auto flex items-center justify-between">
-        <div className="text-lg font-bold text-white">NUDE PROJECT</div>
-        <div className="space-x-4">
-          <div className="group relative inline-block">
-            <button>
-              <a href="#" className="text-white">
-                Productos
-              </a>
-              <div className="absolute left-4 z-10 mt-3 hidden bg-gray-800 text-white group-hover:block">
-                {categories.map((category) => (
-                  <a key={category.id} href="#" className="block px-4 py-2">
-                    {category.name}
-                  </a>
-                ))}
+    <nav>
+      <div className="container-navbar">
+        <Link to="/" className="brand">
+          {title}
+        </Link>
+        <div className="content-container">
+          <div class="group">
+            <button class="button-style">
+              <a class="text-white">{nameCategories}</a>
+              {/* deslegable categorias */}
+              <div class="dropdown-menu">
+                <div class="dropdown-menu__content">{showCategories}</div>
               </div>
             </button>
           </div>
+          {/* Otros */}
+          <div className="group">{showButtons}</div>
         </div>
         <div>
-          <input type="search" placeholder="buscar" />
+          <input className="searchInput" type="search" placeholder="buscar" />
         </div>
         <div>
           <button onClick={() => alert("Tienes: 0 elementos")}>
