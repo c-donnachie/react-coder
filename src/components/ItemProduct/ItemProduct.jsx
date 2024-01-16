@@ -1,4 +1,3 @@
-import React from "react"
 import "./ItemProduct.css"
 
 export default function ItemProduct({ data }) {

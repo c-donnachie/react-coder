@@ -1,12 +1,10 @@
-export const adaptApiData = (apiData) => {
-  const products = apiData && apiData.products ? apiData.products : []
-
-  const adaptedData = products.map((product) => ({
+export const adaptApiData = (product) => {
+  return {
     id: product.id,
     name: product.title,
     price: product.price,
     image: product.thumbnail,
-  }))
-
-  return adaptedData
-}
+    category: product.category,
+    brand: product.brand,
+  };
+};

@@ -1,0 +1,82 @@
+.card-container {
+  width: 300px;
+  height: 426px;
+  margin: 30px auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+}
+
+.card-container .card-header {
+  display: flex;
+  justify-content: center;
+}
+
+.card-container .card-header h3 {
+  width: 200px;
+  height: 22px;
+}
+
+.card-container .card-image img {
+  width: 300px;
+  height: 300px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.price-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container .footer-content .price-container p {
+  width: 60px;
+  height: 30px;
+}
+
+.card-container .footer-content .button-skeleton div {
+  width: 180px;
+  height: 63px;
+}
+
+.placeholder {
+  background-color: #ccc;
+  height: 10px;
+
+  animation-name: placeholder;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes placeholder {
+  0% {
+    background-color: #ccc;
+  }
+  50% {
+    background-color: #eee;
+  }
+  100% {
+    background-color: #ccc;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,39 @@
+.container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.s.cardLeft {
+  display: flex;
+}
+
+.card__image .card__img {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.cardRight {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.card__title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.card__input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  width: 60px; 
+}

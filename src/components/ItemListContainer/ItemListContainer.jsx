@@ -1,61 +1,50 @@
-import React from "react"
-import "./ItemListContainer.css"
+import styles from "./ItemListContainer.module.css"
 import { Link } from "react-router-dom"
 import Lottie from "lottie-react"
-import skeletonImage from "../../assets/animations/skeletonImage.json"
-import skeletonText from "../../assets/animations/skeletonText.json"
+import loadingGif from "../../assets/animations/loading.json"
+import { useContext } from "react"
+import { CartContext } from "../../context/CartContext"
 
-export default function ItemListContainer({ productsData }) {
-  const showProducts = () => {
-    if (!productsData || productsData.length === 0) {
-      const loadingItems = []
-      for (let i = 0; i < 20; i++) {
-        loadingItems.push(
-          <div className="loading-message" key={i}>
-            <div className="card-product">
-              <div className="image">
-                <Lottie animationData={skeletonImage} />
-              </div>
-              <h3 className="text-skeleton">
-                <Lottie animationData={skeletonText} />
-              </h3>
-              <div className="footer-product">
-                <div className="price-container">
-                  <p className="price-skeleton">
-                    <Lottie animationData={skeletonText} />
-                  </p>
-                </div>
-                <div className="button-skeleton">
-                  <Lottie animationData={skeletonText} />
-                </div>
-              </div>
-            </div>
+export default function ItemListContainer({ productsData, loading }) {
+
+  const { addToCart } = useContext(CartContext);
+
+  const handleClick = (product) => {
+    addToCart(product);
+  };
+
+
+
+  const content = loading ? (
+    <div className={styles.container}>
+      <div className="gif">
+        <Lottie animationData={loadingGif} />
+      </div>
+    </div>
+  ) : (
+
+    productsData.map((product) => (
+      <div className={styles.card} key={product.id}>
+        <p className={styles.card__category}>{product.brand}</p>
+        <p className={styles.card__category}>{product.category}</p>
+        <h3 className={styles.card__title}>{product.name}</h3>
+        <div className={styles.card__image}>
+          <Link to={`/item/${product.id}`}>
+            <img className={styles.card__img} src={product.image} alt={product.name} />
+          </Link>
+        </div>
+        <div className={styles.card__footer}>
+          <div className={styles.card__priceFooter}>
+            <p className={styles.card__price}>${product.price}</p>
+            <button className={styles.card__button} onClick={handleClick}>🛒</button>
           </div>
-        )
-      }
-
-      return loadingItems
-    }
-
-    return productsData.map((product) => (
-      <div className="card-product" key={product.id}>
-        <Link to={`/item/${product.id}`}>
-          <img className="image" src={product.image} alt={product.name} />
-        </Link>
-        <h3 className="text">{product.name}</h3>
-        <div className="footer-product">
-          <div className="price-container">
-            <p className="price">${product.price}</p>
-          </div>
-          <button className="button text">Agregar al carrito</button>
         </div>
       </div>
     ))
-  }
 
-  return (
-    <div className="general-container">
-      <div className="container">{showProducts()}</div>
-    </div>
   )
+
+
+  return <div className={styles.container}>{content}</div>
+
 }

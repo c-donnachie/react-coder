@@ -1,4 +1,3 @@
-import React from "react"
 import { useCategory } from "../../hooks/useCategory.jsx"
 import { Link } from "react-router-dom"
 import "./Catalogo.css"
