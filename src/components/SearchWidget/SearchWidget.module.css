@@ -1,7 +1,24 @@
+.searchContainer {
+    position: relative;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
 .card {
     display: flex;
 }
+
 .input {
+    z-index: 10;
     width: 30rem;
     height: 2.7rem;
     border: 1px solid #ccc;
@@ -11,21 +28,69 @@
     outline: none;
     box-sizing: border-box;
     transition: all 0.3s ease;
+
     &:focus {
-        border-color: #000;
+        border-color: #000;;
     }
 }
 
+.input__focus {
+    background-color: white;
+    color: black;
+}
+
 .cardSearch {
-    visibility:hidden;
+    visibility: hidden;
+    z-index: 10;
     margin-top: 3.5rem;
     width: 30rem;
-    height: 10rem;
+    min-height: auto;
     border-radius: 0.1rem;
     background-color: white;
     position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .cardSearch__show {
-    visibility:visible;
+    visibility: visible;
+}
+
+.cardSearch__product {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: white;
+    padding: 2px 20px;
+}
+
+.cardSearch__product:hover {
+    background-color: #f5f5f5;
+}
+
+.cardSearch__name {
+    display: flex;
+    flex: 1;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    margin: 10px 0;
+    align-self: center;
+
+}
+
+.cardSearch__image .cardSearch__img {
+    width: 60px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.noResultsMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }

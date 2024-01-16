@@ -23,6 +23,11 @@ p {
   text-wrap: pretty;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* Estilos para resetear estilos predeterminados de inputs y botones */
 input, button, select, textarea {
   margin: 0;
