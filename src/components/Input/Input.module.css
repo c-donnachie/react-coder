@@ -1,0 +1,32 @@
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    /* background-color: #fff; */
+}
+
+.input {
+    width: 200px;
+    border: 1px solid #ccc;
+    z-index: 2;
+    color: black;
+
+}
+
+.input__focus {
+    border-color: blue;
+}
+
+.input__title {
+    font-size: 14px;
+    color: black;
+    position: absolute;
+    align-self: center;
+    z-index: 1;
+    background-color: white;
+}
+
+.input__title .input__title__onChange {
+    z-index: 1;
+    top: -100px;
+    left: 10px;
+}

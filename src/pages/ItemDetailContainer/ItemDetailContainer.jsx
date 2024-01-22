@@ -1,8 +1,8 @@
-import { useGetProductById } from "../hooks/useProducts.jsx"
+import { useGetProductById } from "../../hooks/useProducts.jsx"
 import { useParams } from "react-router-dom"
 import Lottie from "lottie-react"
-import loadingGif from "../assets/animations/loading.json"
-import ItemDetail from "../components/ItemDetail/ItemDetail.jsx"
+import loadingGif from "../../assets/animations/loading.json"
+import ItemDetail from "../../components/ItemDetail/ItemDetail.jsx"
 
 export default function ItemDetailContainer() {
   const { id } = useParams()
@@ -15,7 +15,7 @@ export default function ItemDetailContainer() {
       </div>
     </div>
   ) : (
-      <ItemDetail productData={productData} />
+      <ItemDetail product={productData} />
   )
 
   return <div>{content}</div>

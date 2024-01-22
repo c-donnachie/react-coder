@@ -1,0 +1,36 @@
+@import '../../colors.css';
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.cart {
+    display: flex;
+    position: relative;
+}
+
+.cart__img {
+    height: 1.4rem;
+}
+
+.cart__totalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.cart__totalValue {
+    color: white;
+    font-size: 0.7rem;
+    font-weight: semibold;
+}

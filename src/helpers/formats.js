@@ -6,7 +6,7 @@ export const truncateProductName = (name, maxLength) => {
 
 export const formatCurrency = (amount) => {
     const formatter = new Intl.NumberFormat('es-CL', {
-      style: 'currency',
+      // style: 'currency',
       currency: 'CLP',
     });
   

@@ -6,12 +6,13 @@
 * {
   box-sizing: border-box;
   min-width: 0;
+  color: black;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #000000;
+  background-color: whitesmoke;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -21,11 +22,28 @@ h1, h2, h3, h4 {
 
 p {
   text-wrap: pretty;
+  margin: 0px;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+hr {
+  border: 0.5px solid #e3e3e3;
+}
+
+.contenedor-flex {
+  font-size: 0;
+}
+
+div {
+  color: black;
+}
+
+.contenedor-flex > * {
+  font-size: 16px; /* ajusta según sea necesario */
 }
 
 /* Estilos para resetear estilos predeterminados de inputs y botones */

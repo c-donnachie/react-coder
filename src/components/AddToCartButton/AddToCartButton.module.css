@@ -1,0 +1,28 @@
+.card__button {
+    width: 100px;
+    height: 4rem;
+    background-color: #ffe144;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: border-color 0.2s ease-out;
+  }
+  
+  .card__button:hover {
+    background-color: black;
+    border-color: #bd13e8;
+  }
+
+  .card__button__animation {
+    width: 4.1rem;
+    transition: scale 0.5s ease; 
+  }
+  
+  .card__button__animation.stopped {
+    scale: 1.2;
+  }
+
+  .card__button__animation:hover {
+    scale: 1.2;
+  }

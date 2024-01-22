@@ -1,7 +1,8 @@
 import s from './CreateProduct.module.css'
 import { useState } from 'react'
 import { collection, getFirestore, addDoc } from 'firebase/firestore'
-import { useGetCategories } from '../hooks/useProducts'
+import { useGetCategories } from '../../hooks/useProducts'
+import Input from '../../components/Input/Input'
 
 export default function CreateProduct() {
     const [title, setTitle] = useState('')
@@ -60,6 +61,10 @@ export default function CreateProduct() {
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)} />
+                <Input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                />
                 <label htmlFor="price">Price</label>
                 <input
                     className={s.card__input}

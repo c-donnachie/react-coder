@@ -3,7 +3,7 @@ div {
 }
 
 nav {
-  background: #212121;
+  background: white;
   padding: 1.5rem;
   z-index: 100;
 }
@@ -61,12 +61,4 @@ nav {
 }
 .buttonStyle {
   background-color: transparent;
-}
-
-.searchInput {
-  padding-left: 10px;
-  background: #000;
-  border-radius: 0.2rem;
-  width: 30rem;
-  height: 2.7rem;
 }

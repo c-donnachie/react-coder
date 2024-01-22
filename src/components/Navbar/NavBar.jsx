@@ -1,54 +1,45 @@
-import CartWidget from "../CartWidget/CartWidget"
+import CartTotal from "../CartTotal/CartTotal"
 import SearchWidget from "../SearchWidget/SearchWidget"
-import styles from "./NavBar.module.css"
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { CartOpenContext } from "../../context/CartOpenContext"
+import s from "./NavBar.module.css"
 
-export default function NavBar({ title, nameCategories, categories, buttons }) {
-
+export default function NavBar({ title }) {
+  const { handleOpenCart } = useContext(CartOpenContext)
 
   return (
     <div>
-      <nav>
-        <div className={styles.container}>
-          <Link
-            to="/"
-            className={styles.brand}>
-            <div
-              className="text-white">
+      <nav className={s.mainNav}>
+        <div className={s.container}>
+          <Link to="/" className={s.brand}>
+            <div>
               {title}
             </div>
           </Link>
           <div>
-            <SearchWidget/>
+            <SearchWidget />
           </div>
           <div>
-            <button onClick={() => alert("Tienes: 0 elementos")}>
-              <CartWidget />
+            <button onClick={handleOpenCart}>
+              <CartTotal />
             </button>
           </div>
         </div>
       </nav>
 
       {/* 2do nav categorias */}
-      <nav className={styles.container}>
+      <nav className={`${s.container} `}>
         <Link to="/create">
-          <div className="text-white">Crear</div>
+          <div className={s.textWhite}>Crear</div>
+        </Link>
+        <Link to="/cart">
+          <div className={s.textWhite}>Cart</div>
+        </Link>
+        <Link to="/filtered">
+          <div className={s.textWhite}>Filtros</div>
         </Link>
       </nav>
     </div>
   )
 }
-
-
-{/* <div className={styles.contentContainer}>
-<div className={styles.group}>
-  <button className={styles.buttonStyle}>
-
-    <div className={styles.dropdownMenu}>
-      <div className={styles.dropdownMenu__content}></div>
-    </div>
-  </button>
-</div>
-
-<div className="group"></div>
-</div> */}

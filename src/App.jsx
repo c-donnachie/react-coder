@@ -1,16 +1,15 @@
 import { CartProvider } from "./context/CartContext"
-import { TestProvider } from "./context/TestContext"
+import { CartOpenProvider } from "./context/CartOpenContext"
 import MainRouter from "./router/MainRouter"
 
 export default function App() {
   return (
     <>
-      <TestProvider>
+      <CartOpenProvider>
         <CartProvider>
-
-      <MainRouter />
+          <MainRouter />
         </CartProvider>
-      </TestProvider>
+      </CartOpenProvider>
     </>
   )
 }

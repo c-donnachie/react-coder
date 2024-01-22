@@ -12,7 +12,8 @@ export const useGetCollection = (collectionName) => {
 
     getDocs(productsCollection)
       .then((snapshot) => {
-        const adaptedData = snapshot.docs.map((doc) => adaptApiData({ id: doc.id, ...doc.data() }))
+        const adaptedData = snapshot.docs.map((doc) =>
+          adaptApiData({ id: doc.id, ...doc.data() }))
         setProductsData(adaptedData)
       })
       .catch((error) => {
@@ -33,7 +34,9 @@ export const useGetProductById = (collectionName = 'products', id) => {
     const getRef = doc(db, collectionName, id)
     getDoc(getRef)
       .then((doc) => {
-        setProductData(adaptApiData({ id: doc.id, ...doc.data() }))
+        setProductData(
+          adaptApiData({ id: doc.id, ...doc.data() })
+        )
       })
       .catch((error) => {
         console.log(error)

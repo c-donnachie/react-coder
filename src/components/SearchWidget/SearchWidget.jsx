@@ -33,7 +33,7 @@ export default function SearchWidget() {
     return (
         <div className={s.searchContainer}>
             {searchTerm.length > 0 && (
-                <div className={s.overlay} onClick={handleInputClick}>
+                <div className={s.overlay} onClick={resetSearchTerms}>
                 </div>
             )}
             <div className={s.card}>

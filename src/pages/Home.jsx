@@ -5,6 +5,7 @@ import { useGetCollection } from "../hooks/useProducts.jsx"
 // import Lottie from "lottie-react"
 // import loadingGif from "../assets/animations/loading.json"
 import { useGetCategories } from "../hooks/useCategory.jsx"
+import Footer from "../components/Footer/Footer.jsx"
 
 export default function Home() {
 
@@ -31,6 +32,7 @@ export default function Home() {
     <div>
       <CategoriesWidget categories={categories} />
       <ItemListContainer productsData={productsData} loading={loading} />
+      <Footer/>
     </div>
   )
 }

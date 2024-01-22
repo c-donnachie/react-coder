@@ -1,19 +1,9 @@
 import styles from "./ItemListContainer.module.css"
-import { Link } from "react-router-dom"
 import Lottie from "lottie-react"
 import loadingGif from "../../assets/animations/loading.json"
-import { useContext } from "react"
-import { CartContext } from "../../context/CartContext"
-import { formatCurrency, truncateProductName } from "../../helpers/formats"
+import ItemList from "../ItemList/ItemList"
 
 export default function ItemListContainer({ productsData, loading }) {
-
-  const { addToCart } = useContext(CartContext);
-
-  const handleClick = (product) => {
-    addToCart(product);
-  };
-
 
 
   const content = loading ? (
@@ -24,24 +14,7 @@ export default function ItemListContainer({ productsData, loading }) {
     </div>
   ) : (
 
-    productsData.map((product) => (
-      <div className={styles.card} key={product.id}>
-        <p className={styles.card__category}>{product.brand}</p>
-        <p className={styles.card__category}>{product.category}</p>
-        <h2 className={styles.card__title}>{truncateProductName(product.name, 80)}</h2>
-        <div className={styles.card__image}>
-          <Link to={`/item/${product.id}`}>
-            <img className={styles.card__img} src={product.image} alt={product.name} />
-          </Link>
-        </div>
-        <div className={styles.card__footer}>
-          <div className={styles.card__priceFooter}>
-            <p className={styles.card__price}>{formatCurrency(product.price)}</p>
-            <button className={styles.card__button} onClick={handleClick}>🛒</button>
-          </div>
-        </div>
-      </div>
-    ))
+      <ItemList productsData={productsData} />
 
   )
 
