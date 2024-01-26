@@ -1,13 +1,15 @@
 import s from './SearchWidget.module.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useGetCollection } from '../../hooks/useProducts';
 import { Link } from 'react-router-dom';
 import { truncateProductName } from '../../helpers/formats';
+import { CartOpenContext } from '../../context/CartOpenContext';
 
 export default function SearchWidget() {
     const { productsData } = useGetCollection('products');
     const [searchTerm, setSearchTerm] = useState('');
     const [isInputFocused, setIsInputFocused] = useState(false)
+    const { handleCloseCart } = useContext(CartOpenContext);
 
 
     const results = !searchTerm
@@ -18,6 +20,7 @@ export default function SearchWidget() {
 
     const handleSearchTerms = (event) => {
         setSearchTerm(event.target.value)
+        handleCloseCart()
     }
 
     const resetSearchTerms = () => {

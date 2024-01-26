@@ -5,11 +5,14 @@ import s from './CartWidget.module.css';
 import { CartOpenContext } from "../../context/CartOpenContext";
 import ItemQuantitySelector from "../ItemQuantitySelector/ItemQuantitySelector";
 import Lottie from "lottie-react"
-import cartIsEmpy from "../../assets/animations/cartIsEmpy.json"
+import cartIsEmpyAnimation from "../../assets/animations/cartIsEmpy.json"
+import CloseIcon from "../../assets/icons/Close.svg"
 
 export default function CartWidget() {
   const { handleCloseCart, cartOpen } = useContext(CartOpenContext);
-  const { cart, clearCart, totalPrice, removeProduct } = useContext(CartContext);
+  const { cart, clearCart, cartIsEmpy, totalPrice, removeProduct } = useContext(CartContext);
+
+  console.log('cart', cartIsEmpy)
 
   const cartContent =
     cart.length > 0 ? (
@@ -23,7 +26,11 @@ export default function CartWidget() {
 
             <button onClick={() => removeProduct(product.id)}>
               <div className={s.card__image}>
-                <p className={s.card__image__remove}>X</p>
+                <img className={s.card__image__remove}
+                  src={CloseIcon}
+                  alt="remove product"
+                />
+
                 <img
                   className={s.card_img}
                   src={product.image}
@@ -56,7 +63,7 @@ export default function CartWidget() {
 
     ) : (
       <div className={s.cartEmpy__container}>
-        <Lottie className={s.cartWidget__gif} animationData={cartIsEmpy} />
+        <Lottie className={s.cartWidget__gif} animationData={cartIsEmpyAnimation} />
         <h3>Your cart is empty.</h3>
         <p>Please add product to your cart list</p>
       </div>
@@ -73,8 +80,15 @@ export default function CartWidget() {
           >
             <div className={s.cartWidget__card__header}>
               <p className={s.cartWidget__title}>Carrito</p>
-              <button onClick={clearCart}>Clear</button>
-              <button onClick={handleCloseCart}>X</button>
+              <button
+                className={`${s.cartWidget__clearButton} ${cartIsEmpy ? s.cartWidget__clearButton__disabled : ''}`}
+                onClick={clearCart}
+              >Clear</button>
+              <button onClick={handleCloseCart}>
+                <img
+                  className={s.cartWidge__closeIcon}
+                  src={CloseIcon} alt="close" />
+              </button>
             </div>
 
             <div className={s.cartWidget__products}>
@@ -85,9 +99,9 @@ export default function CartWidget() {
             </div>
 
             <div className={s.cartWidget__card__footer}>
-              <p>Subtotal: ${formatCurrency(totalPrice)}</p>
+              <p className={s.cartWidget__card__footer__total}>Subtotal: ${formatCurrency(totalPrice)}</p>
               <p>Final price and discounts will be determined at the time of payment processing.</p>
-              <div className={s.button}>Proced to checkout</div>
+              <div className={`${s.button} ${cartIsEmpy && s.button__cartEmpty} `}>Proced to checkout</div>
             </div>
 
           </section>

@@ -8,9 +8,9 @@ export default function ItemList({ productsData }) {
     return (
         productsData.map((product) => (
             <div className={s.card} key={product.id}>
-                <p className={s.card__category}>{product.brand}</p>
+                <p className={s.card__brand}>{product.brand}</p>
                 <p className={s.card__category}>{product.category}</p>
-                <h2 className={s.card__title}>{truncateProductName(product.name, 80)}</h2>
+                <h2 className={s.card__title}>{truncateProductName(product.name, 100)}</h2>
                 <div className={s.card__image}>
                     <Link to={`/item/${product.id}`}>
                         <img
@@ -21,8 +21,13 @@ export default function ItemList({ productsData }) {
                 </div>
                 <div className={s.card__footer}>
                     <div className={s.card__priceFooter}>
-                        <p className={s.card__price}>{formatCurrency(product.price)}</p>
-                        <AddToCartButton product={product}/>
+                        <div>
+                            <p className={s.card__price}>${formatCurrency(product.price)}</p>
+                            <p>precio oferta</p>
+                        </div>
+                        <div className={s.card__button}>
+                            <AddToCartButton product={product} />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@
 }
 
 .cart__img {
-    height: 1.4rem;
+    height: 1.5rem;
 }
 
 .cart__totalContainer {
@@ -27,6 +27,13 @@
     position: absolute;
     right: -10px;
     top: -10px;
+    transition: all 0.1s ease-out;
+}
+
+.cart__totalContainer_buy {
+    height: 1.3rem;
+    width: 1.3rem;
+    rotate: 25deg;
 }
 
 .cart__totalValue {

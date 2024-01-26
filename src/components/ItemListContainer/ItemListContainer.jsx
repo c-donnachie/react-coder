@@ -14,11 +14,15 @@ export default function ItemListContainer({ productsData, loading }) {
     </div>
   ) : (
 
-      <ItemList productsData={productsData} />
+    <ItemList productsData={productsData} />
 
   )
 
 
-  return <div className={styles.container}>{content}</div>
+  return (
+    <div className={styles.container}>
+      <div className={styles.subContainer}>{content}</div>
+    </div>
+  )
 
 }

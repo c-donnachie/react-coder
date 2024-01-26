@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import Lottie from "lottie-react"
 import loadingGif from "../../assets/animations/loading.json"
 import ItemDetail from "../../components/ItemDetail/ItemDetail.jsx"
+import Footer from "../../components/Footer/Footer.jsx"
 
 export default function ItemDetailContainer() {
   const { id } = useParams()
@@ -15,8 +16,13 @@ export default function ItemDetailContainer() {
       </div>
     </div>
   ) : (
-      <ItemDetail product={productData} />
+    <ItemDetail product={productData} />
   )
 
-  return <div>{content}</div>
+  return (
+    <div>
+      {content}
+      <Footer />
+    </div>
+  )
 }

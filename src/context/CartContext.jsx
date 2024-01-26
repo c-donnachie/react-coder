@@ -8,11 +8,13 @@ export const CartProvider = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const { handleOpenCart, handleCloseCart } = useContext(CartOpenContext);
+  const [cartIsEmpy, setCartIsEmpy] = useState(true);
 
   const clearCart = () => {
     setCart([]);
     setTotalQuantity(0);
     setTotalPrice(0);
+    setCartIsEmpy(true);
   };
 
   const updateQuantity = (productId, newQuantity, newPrice) => {
@@ -70,6 +72,7 @@ export const CartProvider = ({ children }) => {
     }
 
     // handleOpenCart();
+    setCartIsEmpy(false);
   };
 
 
@@ -86,7 +89,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cart, totalPrice, totalQuantity, addToCart, clearCart, updateQuantity, removeProduct }}>
+      value={{ cart, totalPrice, totalQuantity, cartIsEmpy , addToCart, clearCart, updateQuantity, removeProduct }}>
       {children}
     </CartContext.Provider>
   );

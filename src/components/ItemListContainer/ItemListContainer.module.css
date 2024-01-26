@@ -1,5 +1,11 @@
 .container {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.subContainer {
+  min-width: 80rem;
+  width: auto;
   display: grid;
   padding: 30px;
   gap: 20px;

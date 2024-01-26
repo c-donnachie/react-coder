@@ -1,7 +1,6 @@
 import s from './CreateProduct.module.css'
 import { useState } from 'react'
 import { collection, getFirestore, addDoc } from 'firebase/firestore'
-import { useGetCategories } from '../../hooks/useProducts'
 import Input from '../../components/Input/Input'
 
 export default function CreateProduct() {
@@ -11,7 +10,6 @@ export default function CreateProduct() {
     const [thumbnail, setThumbnail] = useState('')
     const [category, setCategory] = useState('')
     const [brand, setBrand] = useState('')
-    const { categories } = useGetCategories()
     const [loading, setLoading] = useState(false)
 
     const resetInputs = () => {
@@ -82,15 +80,7 @@ export default function CreateProduct() {
                 <select
                     name="category"
                     id="category">
-                    {
-                        categories.map((category, index) => (
-                            <option
-                                key={index}
-                                value={category}
-                                onChange={(e) => setCategory(e.target.value)}
-                            >{category}</option>
-                        ))
-                    }
+
                 </select>
 
                 <label htmlFor="brand">Brand</label>

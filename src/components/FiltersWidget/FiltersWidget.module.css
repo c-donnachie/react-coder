@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color: blueviolet;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 20px;
+    width: 20rem;
+}
+
+.dropdown__container {
+    display: none;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.dropdown__container_active {
+    display: block;
+}
+
+.subCard {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 20px;
+}

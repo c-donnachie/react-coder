@@ -4,6 +4,7 @@ import buyAnimation from "../../assets/animations/buyAnimation.json"
 import s from "./AddToCartButton.module.css"
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
+import { toast } from 'react-toastify';
 
 export default function AddToCartButton({ product }) {
     const { addToCart } = useContext(CartContext);
@@ -20,6 +21,12 @@ export default function AddToCartButton({ product }) {
             }));
 
             addToCart(product);
+
+            setTimeout(() => {
+                toast.success('Añadido al carrito', {
+                    draggablePercent: 60
+                });
+            }, 1100)
 
             setTimeout(() => {
                 setAnimationStates((prevStates) => ({
@@ -42,20 +49,25 @@ export default function AddToCartButton({ product }) {
     }, [cooldown]);
 
     return (
-        <button onClick={() => handleAddToCart(product)}>
-            {animationStates[product.id] ? (
-                <Lottie
-                    className={`${s.card__button__animation} ${animationStates[product.id] ? s.stopped : s.stopped}`}
-                    animationData={buyAnimation}
-                />
-            ) : (
-                <Lottie
-                    className={`${s.card__button__animation} ${animationStates[product.id] ? '' : ''}`}
-                    animationData={addingToCart}
-                    autoplay={false}
-                    loop={false}
-                />
-            )}
-        </button>
+        <div>
+
+
+            <button onClick={() => handleAddToCart(product)}>
+                {animationStates[product.id] ? (
+                    <Lottie
+                        className={`${s.card__button__animation} ${animationStates[product.id] ? s.stopped : s.stopped}`}
+                        animationData={buyAnimation}
+                    />
+                ) : (
+                    <Lottie
+                        className={`${s.card__button__animation} ${animationStates[product.id] ? '' : ''}`}
+                        animationData={addingToCart}
+                        autoplay={false}
+                        loop={false}
+                    />
+                )}
+            </button>
+        </div>
+
     )
 }

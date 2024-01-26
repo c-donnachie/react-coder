@@ -1,20 +1,26 @@
-import { useCategory } from "../../hooks/useCategory.jsx"
+import { useGetCategories } from "../../hooks/useCategory"
 import { Link } from "react-router-dom"
-import "./Catalogo.css"
 
 export default function Catalogo() {
-  const { category } = useCategory()
+
+  const { categories } = useGetCategories('categories2')
+  
   return (
     <div>
       <h1>Catalogo</h1>
       <ul>
-        {category.map((item, index) => (
-          <div className="content">
-            <Link to={`/category/${item}`}>
-              <div key={index}>{item}</div>
-            </Link>
-          </div>
-        ))}
+
+        {
+          categories.map((item, index) => (
+            <div key={index}>
+              <Link to={`/category/${item.id}`}>
+                <div key={index}>{item.name}</div>
+              </Link>
+            </div>
+          ))
+        }
+
+
       </ul>
     </div>
   )

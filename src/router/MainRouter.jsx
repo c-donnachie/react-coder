@@ -8,9 +8,11 @@ import Catalogo from "../components/Catalogo/Catalogo.jsx"
 import { useGetCategories } from "../hooks/useCategory.jsx"
 import Cart from "../pages/Cart/Cart.jsx"
 import CreateProduct from '../pages/CreateProduct/CreateProduct.jsx'
-import FilteredProduct from "../pages/FilteredProduct/FilteredProduct.jsx"
+import FilteredProducts from "../pages/FilteredProducts/FilteredProducts.jsx"
 import CartWidget from "../components/CartWidget/CartWidget.jsx"
 import NavbarPrevius from "../components/NavbarPrevious/NavbarPrevius.jsx"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useState, useEffect, useRef } from "react"
 
@@ -23,7 +25,7 @@ export default function MainRouter() {
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY
-      if (offset > 1) {
+      if (offset > 0) {
         setScrolled(true)
       } else {
         setScrolled(false)
@@ -50,15 +52,31 @@ export default function MainRouter() {
 
       {
         scrolled ?
-        <NavbarPrevius/>
-        :
-        <NavBar
-        title="TECNOLOGIA"
-        nameCategories="Categorias"
-        categories={categories}
-        buttons={buttons}
-        />
+          <NavbarPrevius />
+          :
+          <NavBar
+            title="TECNOLOGIA"
+            nameCategories="Categorias"
+            categories={categories}
+            buttons={buttons}
+          />
       }
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        stacked
+        draggable
+        draggablePercent={60}
+        pauseOnHover
+        theme="light"
+        trasition="bounce"
+      />
 
 
       <Routes>
@@ -67,9 +85,11 @@ export default function MainRouter() {
         <Route path="/nosotros" element={<Contact />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="/category" element={<Catalogo />} />
+        <Route path="/category/:name" element={<FilteredProducts />} />
         <Route path="/create" element={<CreateProduct />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/filtered" element={<FilteredProduct />} />
+        <Route path="/filtered?" element={<FilteredProducts />} />
+
 
       </Routes>
 

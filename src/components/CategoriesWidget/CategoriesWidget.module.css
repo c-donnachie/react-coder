@@ -1,10 +1,11 @@
 .container {
-  margin-top: 40px;
+  margin-top: 10px;
   width: 100%;
   display: flex;
   flex-direction: row;
   gap: 20px;
   justify-content: center;
+  user-select: none;
 }
 
 .card {
@@ -14,13 +15,11 @@
   align-items: center;
   flex-direction: column;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  background-color: white;
+  /* transition: box-shadow 0.3s ease; */
 }
 
 .card:hover {
   cursor: pointer;
-  box-shadow: 0 0 0 1px #fffdfd, 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .card__title {
@@ -33,7 +32,6 @@
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border-radius: 0.2rem;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 

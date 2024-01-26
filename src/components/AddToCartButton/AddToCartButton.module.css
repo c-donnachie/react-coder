@@ -1,3 +1,5 @@
+@import '../../colors.css';
+
 .card__button {
     width: 100px;
     height: 4rem;
@@ -16,7 +18,8 @@
 
   .card__button__animation {
     width: 4.1rem;
-    transition: scale 0.5s ease; 
+    transition: scale 0.5s ease;
+    /* background-color: var(--primary-color); */
   }
   
   .card__button__animation.stopped {

@@ -1,3 +1,5 @@
+@import '../../colors.css';
+
 .card {
     flex-direction: column;
     display: flex;
@@ -7,20 +9,29 @@
     transform: scale(1);
     transition: border-color 0.3s ease, transform 0.3s ease, opacity 0.1s ease-out;
     opacity: 0.97;
+    user-select: none;
   }
   
   .card:hover {
     transform: scale(1.03);
     opacity: 1;
   }
-  
-  .card__category {
+
+
+  .card__brand {
     font-size: 12px;
     font-weight: bold;
     color: black;
     margin: 10px 0;
     align-self: center;
+  }
   
+  .card__category {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 10px 0;
+    align-self: center;
   }
   
   .card__title {
@@ -29,8 +40,7 @@
     font-size: 15px;
     font-weight: bold;
     color: black;
-    margin: 10px 0;
-    align-self: center;
+    margin: 10px 20px;
   }
   
   .card__image .card__img {
@@ -61,8 +71,13 @@
   }
   
   .card__price {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    color: black;
+    color: var(--primary-color);
+  }
+
+  .card__button {
+    display: flex;
+    margin: 2px 12px;
   }
   

@@ -10,6 +10,9 @@ export default function NavbarPrevius() {
     return (
 
         <nav className={`${s.container}`}>
+
+            <div>Categorias</div>
+
             <Link to="/create">
                 <div className={s.textWhite}>Crear</div>
             </Link>
@@ -20,7 +23,7 @@ export default function NavbarPrevius() {
                 <div className={s.textWhite}>Filtros</div>
             </Link>
             <button onClick={handleOpenCart}>
-              <CartTotal />
+                <CartTotal />
             </button>
         </nav>
     )
