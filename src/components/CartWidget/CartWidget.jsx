@@ -7,12 +7,18 @@ import ItemQuantitySelector from "../ItemQuantitySelector/ItemQuantitySelector";
 import Lottie from "lottie-react"
 import cartIsEmpyAnimation from "../../assets/animations/cartIsEmpy.json"
 import CloseIcon from "../../assets/icons/Close.svg"
+import { useNavigate } from "react-router-dom";
 
 export default function CartWidget() {
   const { handleCloseCart, cartOpen } = useContext(CartOpenContext);
   const { cart, clearCart, cartIsEmpy, totalPrice, removeProduct } = useContext(CartContext);
 
-  console.log('cart', cartIsEmpy)
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/checkout');
+    handleCloseCart();
+  };
 
   const cartContent =
     cart.length > 0 ? (
@@ -101,7 +107,13 @@ export default function CartWidget() {
             <div className={s.cartWidget__card__footer}>
               <p className={s.cartWidget__card__footer__total}>Subtotal: ${formatCurrency(totalPrice)}</p>
               <p>Final price and discounts will be determined at the time of payment processing.</p>
-              <div className={`${s.button} ${cartIsEmpy && s.button__cartEmpty} `}>Proced to checkout</div>
+
+                <button
+                className={`${s.button} ${cartIsEmpy && s.button__cartEmpty} `}
+                onClick={handleClick}
+                >Proced to checkout
+                </button>
+
             </div>
 
           </section>

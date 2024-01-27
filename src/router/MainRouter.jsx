@@ -15,6 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useState, useEffect, useRef } from "react"
+import Checkout from "../pages/Checkout/Checkout.jsx"
 
 export default function MainRouter() {
   const { categories } = useGetCategories('categories2')
@@ -87,6 +88,7 @@ export default function MainRouter() {
         <Route path="/category" element={<Catalogo />} />
         <Route path="/category/:name" element={<FilteredProducts />} />
         <Route path="/create" element={<CreateProduct />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/filtered?" element={<FilteredProducts />} />
 

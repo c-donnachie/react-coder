@@ -29,7 +29,7 @@ export default function Home() {
   // )
 
   return (
-    <div>
+    <div className="container">
       <CategoriesWidget categories={categories} />
       <ItemListContainer productsData={productsData} loading={loading} />
       <Footer/>

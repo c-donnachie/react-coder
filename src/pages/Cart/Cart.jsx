@@ -1,5 +1,5 @@
 import s from './Cart.module.css'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { formatCurrency } from '../../helpers/formats'
 import ItemQuantitySelector from '../../components/ItemQuantitySelector/ItemQuantitySelector';
@@ -8,9 +8,11 @@ export default function Cart() {
 
   const { cart, totalPrice, totalQuantity } = useContext(CartContext);
 
+
   return (
     <div className={s.container}>
-      <h1 className={s.title}>Carrito</h1>
+
+      <h2 className={s.title}>Carrito</h2>
       <div>
         <p className={s.total}>Total: ${formatCurrency(totalPrice)}</p>
       </div>

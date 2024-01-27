@@ -6,6 +6,6 @@
   margin-right: auto;
   align-items: center;
   justify-content: space-evenly;
-  z-index: 1;
+  z-index: 5;
   box-shadow: 0 2px 4px hsl(0 4% 15% / 10%);
 }

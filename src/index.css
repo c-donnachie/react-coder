@@ -16,7 +16,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 
@@ -42,12 +45,16 @@ div {
   color: black;
 }
 
-.contenedor-flex > * {
-  font-size: 16px; /* ajusta según sea necesario */
+.contenedor-flex>* {
+  font-size: 16px;
+  /* ajusta según sea necesario */
 }
 
 /* Estilos para resetear estilos predeterminados de inputs y botones */
-input, button, select, textarea {
+input,
+button,
+select,
+textarea {
   margin: 0;
   padding: 0;
   border: none;
@@ -73,6 +80,6 @@ input {
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  width: 60px; /* Ajusta el ancho según tus necesidades */
+  width: 60px;
+  /* Ajusta el ancho según tus necesidades */
 }
-

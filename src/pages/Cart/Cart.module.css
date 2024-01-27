@@ -1,8 +1,17 @@
+@import '../../colors.css';
+
 .container {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
+
+.hr {
+    width: 40%;
+    border: 1px solid #e6e6e6;
+    position: absolute;
+}
+
 .card {
     display: flex;
     flex-direction: row;

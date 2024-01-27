@@ -1,0 +1,80 @@
+@import '../../colors.css';
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lineProgress {
+    display: flex;
+    height: 0.2rem;
+    width: 40rem;
+    background: linear-gradient(to right, var(--primary-color) 33%, var(--gray-color) 33% 66%, var(--gray-color) 66%);
+    position: absolute;
+    margin-top: -20px;
+    z-index: 1;
+    border-radius: 0.3rem;
+    transition: background 0.3s ease-in-out; 
+}
+
+.lineProgress__2 {
+    background: linear-gradient(to right, var(--primary-color) 33%, var(--primary-color) 33% 66%, var(--gray-color) 66%);
+}
+
+.lineProgress__3 {
+    background: linear-gradient(to right, var(--primary-color) 33%, var(--primary-color) 33% 66%, var(--primary-color) 66%);
+}
+
+
+.checkoutState {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 8rem;
+    width: 50rem;
+    height: 11rem;
+    z-index: 1;
+    background-color: white;
+    margin-bottom: 2rem;
+}
+
+.checkout__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.checkout__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 50%;
+}
+
+.checkout__number {
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 0.2rem solid #F5F5F5;
+    transition: transform 0.3s ease
+}
+
+.checkout__number:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.checkout__number__active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
