@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "../pages/Home.jsx"
 import NavBar from "../components/Navbar/NavBar.jsx"
 import Contact from "../pages/Contact.jsx"
 import { buttons } from "../mocks/buttons.js"
@@ -14,8 +13,11 @@ import NavbarPrevius from "../components/NavbarPrevious/NavbarPrevius.jsx"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, lazy, Suspense } from "react"
 import Checkout from "../pages/Checkout/Checkout.jsx"
+import CompleteOrder from "../pages/CompleteOrder/CompleteOrder.jsx"
+
+const Home = lazy(() => import('../pages/Home.jsx'));
 
 export default function MainRouter() {
   const { categories } = useGetCategories('categories2')
@@ -64,7 +66,7 @@ export default function MainRouter() {
       }
 
       <ToastContainer
-        position="bottom-right"
+        position="bottom-left"
         autoClose={2000}
         hideProgressBar={true}
         newestOnTop={false}
@@ -81,7 +83,14 @@ export default function MainRouter() {
 
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<div></div>}>
+              <Home />
+            </Suspense>
+          }
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/nosotros" element={<Contact />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
@@ -91,6 +100,7 @@ export default function MainRouter() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/filtered?" element={<FilteredProducts />} />
+        <Route path="/complete-order" element={<CompleteOrder />} />
 
 
       </Routes>

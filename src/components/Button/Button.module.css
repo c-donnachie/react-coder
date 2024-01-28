@@ -1,0 +1,13 @@
+@import '../../colors.css';
+
+
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    transition: backgound-color 2s ease;
+}
+
+.button:hover {
+    background-color: black;
+}

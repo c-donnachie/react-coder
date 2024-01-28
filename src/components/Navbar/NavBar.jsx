@@ -55,9 +55,9 @@ export default function NavBar({ title }) {
         <Link to="/create">
           <div className={s.textWhite}>Crear</div>
         </Link>
-        <Link to="/checkout">
+        {/* <Link to="/checkout">
           <div className={s.textWhite}>Checkout</div>
-        </Link>
+        </Link> */}
         <Link to="/filtered">
           <div className={s.textWhite}>Filtros</div>
         </Link>

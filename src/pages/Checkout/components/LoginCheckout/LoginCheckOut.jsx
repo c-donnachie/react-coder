@@ -1,6 +1,7 @@
 import s from './LoginCheckout.module.css';
 import { useContext } from 'react';
 import { CheckoutContext } from '../../../../context/CheckoutContext';
+import Button from '../../../../components/Button/Button';
 
 export default function LoginCheckOut() {
 
@@ -12,12 +13,12 @@ export default function LoginCheckOut() {
         <div className={s.subContainer}>
           <input className={s.input} type="text" placeholder="Rut" />
           <input className={s.input} type="text" placeholder="Contraseña" />
-          <button>Iniciar Sesion</button>
+          <Button text="Iniciar sesión" />
         </div>
       </div>
       <div>
         <div className={s.subContainer}>
-          <button onClick={() => setCheckoutState(2)}>Seguir como invitado </button>
+          <Button text="Continuar como invitado" onClick={() => setCheckoutState(2)} />
         </div>
       </div>
     </div>

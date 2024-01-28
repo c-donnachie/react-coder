@@ -1,8 +1,12 @@
 
 .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
     gap: 4rem;
+    width: 50rem;
+    height: 13rem;
 }
 
 .subContainer {
@@ -12,7 +16,6 @@
     justify-content: center;
     width: 20rem;
     height: 10rem;
-    background: white;
     gap: 1rem;
 }
 

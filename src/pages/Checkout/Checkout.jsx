@@ -1,10 +1,14 @@
 
 import s from "./Checkout.module.css"
-import Cart from "../Cart/Cart";
 import LoginCheckOut from "./components/LoginCheckout/LoginCheckOut";
 import { CheckoutContext } from "../../context/CheckoutContext";
 import { useContext } from "react";
 import ShippingCheckout from "./components/ShippingCheckout/ShippingCheckout";
+import PaymentCheckout from "./components/PaymentCheckout/PaymentCheckout";
+import Lottie from "lottie-react"
+import check from "../../assets/animations/check.json"
+import CartcheckOut from "./components/CartCheckout/CartcheckOut";
+
 
 export default function Checkout() {
 
@@ -21,7 +25,7 @@ export default function Checkout() {
         },
         {
             id: 3,
-            name: 'Pago',
+            name: 'Tipo de Pago',
         }
     ]
 
@@ -29,7 +33,7 @@ export default function Checkout() {
         <section className={s.checkoutState}>
             <div className={`${s.lineProgress} 
             ${checkoutState === 2 ? s.lineProgress__2 : ''} 
-            ${checkoutState === 3 ? s.lineProgress__3 : ''} 
+            ${checkoutState >= 3 ? s.lineProgress__3 : ''} 
             
             `}></div>
             {
@@ -42,8 +46,14 @@ export default function Checkout() {
                             <button onClick={() => setCheckoutState(item.id)}>
                                 <p
                                     className={`${s.checkout__number} 
-                                ${checkout[index].id <= checkoutState ? s.checkout__number__active : ''}
-                                `}>{item.id}</p>
+                                ${checkout[index].id <= checkoutState ? s.checkout__number__ready : ''}
+                                ${checkout[index].id === checkoutState ? s.checkout__number__active : ''}
+                                `}>{checkout[index].id < checkoutState ? <Lottie
+                                        animationData={check}
+                                        autoplay={true}
+                                        loop={false}
+                                        style={{ width: 58, height: 58, position: 'absolute' }}
+                                    /> : item.id}</p>
                             </button>
 
                         </div>
@@ -58,13 +68,27 @@ export default function Checkout() {
 
     return (
         <div className={s.container}>
-            {checkoutStateWidget}
-
-            {checkoutState === 1 && <LoginCheckOut />}
-            {checkoutState === 2 && <ShippingCheckout />}
 
 
-            <Cart />
+            <div className={s.subContainer}>
+                
+                {checkoutStateWidget}
+
+                <div className={s.stateContainer}>
+                    {checkoutState === 1 && <LoginCheckOut />}
+                    {checkoutState === 2 && <ShippingCheckout />}
+                    {checkoutState === 3 && <PaymentCheckout />}
+                </div>
+
+
+            </div>
+
+
+            <div>
+                <CartcheckOut />
+            </div>
+
+
         </div>
     )
 }

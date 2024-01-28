@@ -1,0 +1,13 @@
+
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}

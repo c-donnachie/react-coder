@@ -2,9 +2,37 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+    padding: 2rem;
+}
+
+.subContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.cardButton {
+    margin-top: 2rem;
 }
 
 .input {
     width: 15rem;
+}
+
+.image .img {
+    display: flex;left: 10px;
+    width: 24rem;
+}
+
+.image {
+    display: flex;
+    background: #000;
+    align-self: self-start;
 }
