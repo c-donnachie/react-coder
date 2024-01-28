@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import NavBar from "../components/Navbar/NavBar.jsx"
-import Contact from "../pages/Contact.jsx"
 import { buttons } from "../mocks/buttons.js"
 import ItemDetailContainer from "../pages/ItemDetailContainer/ItemDetailContainer.jsx"
 import Catalogo from "../components/Catalogo/Catalogo.jsx"
@@ -91,8 +90,6 @@ export default function MainRouter() {
             </Suspense>
           }
         />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/nosotros" element={<Contact />} />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
         <Route path="/category" element={<Catalogo />} />
         <Route path="/category/:name" element={<FilteredProducts />} />
