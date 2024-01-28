@@ -8,6 +8,7 @@ import PaymentCheckout from "./components/PaymentCheckout/PaymentCheckout";
 import Lottie from "lottie-react"
 import check from "../../assets/animations/check.json"
 import CartcheckOut from "./components/CartCheckout/CartcheckOut";
+import PrimaryLayout from "../../layouts/PrimaryLayout"
 
 
 export default function Checkout() {
@@ -67,28 +68,32 @@ export default function Checkout() {
         </section>
 
     return (
-        <div className={s.container}>
+
+        <PrimaryLayout>
+
+            <div className={s.container}>
 
 
-            <div className={s.subContainer}>
-                
-                {checkoutStateWidget}
+                <div className={s.subContainer}>
 
-                <div className={s.stateContainer}>
-                    {checkoutState === 1 && <LoginCheckOut />}
-                    {checkoutState === 2 && <ShippingCheckout />}
-                    {checkoutState === 3 && <PaymentCheckout />}
+                    {checkoutStateWidget}
+
+                    <div className={s.stateContainer}>
+                        {checkoutState === 1 && <LoginCheckOut />}
+                        {checkoutState === 2 && <ShippingCheckout />}
+                        {checkoutState === 3 && <PaymentCheckout />}
+                    </div>
+
+
                 </div>
 
 
+                <div>
+                    <CartcheckOut />
+                </div>
+
             </div>
+        </PrimaryLayout>
 
-
-            <div>
-                <CartcheckOut />
-            </div>
-
-
-        </div>
     )
 }

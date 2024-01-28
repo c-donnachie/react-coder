@@ -45,12 +45,14 @@
 }
 
 .cardRight__icons {
+  padding: 2rem 0rem;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  justify-content: center;
+  gap: 2rem;
 }
 
-.cardRight__img {
+.cardRight__image .cardRight__img {
   width: 30px;
   object-fit: cover;
 
@@ -58,8 +60,8 @@
 
 .cardRight__container {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .cardRight__subContainer {
@@ -71,4 +73,27 @@
 
 .cardRight__text {
   font-size: 0.7rem;
+}
+/* ==== */
+
+.zoom__container {
+  overflow: hidden;
+  width: 500px; /* ajusta el tamaño del contenedor según sea necesario */
+  height: 500px;
+}
+
+.zoom__container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom__container:hover img {
+  transform: scale(1.2); /* Ajusta el valor de escala según sea necesario */
+}
+
+.RelatedProducts {
+  display: flex;
+  flex-direction: row;
 }

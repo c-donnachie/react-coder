@@ -20,9 +20,9 @@ export default function ItemListContainer({ productsData, loading }) {
 
 
   return (
-    <div className={styles.container}>
-      <div className={styles.subContainer}>{content}</div>
-    </div>
+      <div className={styles.container}>
+        <div className={styles.subContainer}>{content}</div>
+      </div>
   )
 
 }

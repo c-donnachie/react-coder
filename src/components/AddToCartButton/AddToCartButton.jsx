@@ -6,10 +6,11 @@ import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 import { toast } from 'react-toastify';
 
-export default function AddToCartButton({ product }) {
+export default function AddToCartButton({ product, quantity }) {
     const { addToCart } = useContext(CartContext);
     const [animationStates, setAnimationStates] = useState({});
     const [cooldown, setCooldown] = useState(false);
+
 
     const handleAddToCart = (product) => {
         if (!cooldown) {
@@ -20,7 +21,7 @@ export default function AddToCartButton({ product }) {
                 [product.id]: true,
             }));
 
-            addToCart(product);
+            addToCart(product, quantity);
 
             setTimeout(() => {
                 toast.success('Añadido al carrito', {

@@ -1,5 +1,4 @@
-import { createContext, useState, useContext } from "react";
-import { CartOpenContext } from "./CartOpenContext";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
@@ -7,7 +6,6 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantity, setTotalQuantity] = useState(0);
-  const { handleOpenCart, handleCloseCart } = useContext(CartOpenContext);
   const [cartIsEmpy, setCartIsEmpy] = useState(true);
 
   const clearCart = () => {
@@ -36,19 +34,19 @@ export const CartProvider = ({ children }) => {
     setTotalPrice(newTotalPrice);
   };
 
-  const addToCart = (product) => {
-    // Verificar si el producto ya está en el carrito
+  const addToCart = (product, quantity = 1) => {
+
     const existingProduct = cart.findIndex((item) => item.id === product.id);
 
-    // Convertir precios a números antes de realizar operaciones
+
     const totalPriceIncrement = Number(product.price);
 
     if (existingProduct !== -1) {
-      // Si el producto ya está en el carrito, actualiza la cantidad
+
       const updatedCart = cart.map((item, index) =>
         index === existingProduct
           ? {
-            ...item, quantity: item.quantity + 1,
+            ...item, quantity: item.quantity + quantity,
             subTotal: Number(item.subTotal) + totalPriceIncrement
           }
           : item
@@ -57,21 +55,19 @@ export const CartProvider = ({ children }) => {
       const newTotalPrice = Number(totalPrice) + totalPriceIncrement;
 
       setTotalPrice(newTotalPrice);
-      setTotalQuantity(Number(totalQuantity) + 1);
+      setTotalQuantity(Number(totalQuantity) + quantity);
       setCart(updatedCart);
     } else {
-      // Si el producto no está en el carrito, agrégalo con cantidad 1
       const newTotalPrice = Number(totalPrice) + totalPriceIncrement;
 
       setTotalPrice(newTotalPrice);
-      setTotalQuantity(Number(totalQuantity) + 1);
+      setTotalQuantity(Number(totalQuantity) + quantity);
       setCart((prevCart) => [...prevCart, {
-        ...product, quantity: 1,
+        ...product, quantity: quantity,
         subTotal: totalPriceIncrement
       }]);
     }
 
-    // handleOpenCart();
     setCartIsEmpy(false);
   };
 

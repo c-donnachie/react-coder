@@ -5,11 +5,11 @@ import { useGetCollection } from "../hooks/useProducts.jsx"
 // import Lottie from "lottie-react"
 // import loadingGif from "../assets/animations/loading.json"
 import { useGetCategories } from "../hooks/useCategory.jsx"
-import Footer from "../components/Footer/Footer.jsx"
+import PrimaryLayout from "../layouts/PrimaryLayout.jsx"
 
 export default function Home() {
 
-  
+
   useEffect(() => {
     document.title = "Home | React Router"
   }, [])
@@ -29,10 +29,9 @@ export default function Home() {
   // )
 
   return (
-    <div className="container">
-      <CategoriesWidget categories={categories} />
-      <ItemListContainer productsData={productsData} loading={loading} />
-      <Footer/>
-    </div>
+    <PrimaryLayout>
+        <CategoriesWidget categories={categories} />
+        <ItemListContainer productsData={productsData} loading={loading} />
+    </PrimaryLayout>
   )
 }

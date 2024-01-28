@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.7rem;
+    margin-left: 2rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 0 1rem 0;
+    user-select: none;
+}
+
+.item__quantity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.item__quantityButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid black;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.item__quantityButton:hover {
+    background-color: black;
+    color: white;
+}
