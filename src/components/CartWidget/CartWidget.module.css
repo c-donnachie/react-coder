@@ -72,11 +72,22 @@
     padding-top: 1rem;
 }
 
+.cartWidget__titleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+}
+
 .cartWidget__title {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 1rem 0;
     color: black;
+}
+
+.cartWidget__command {
+    color: var(--gray-color-2);
 }
 
 
