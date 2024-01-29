@@ -21,6 +21,8 @@
   width: 500px;
   height: 500px;
   object-fit: cover;
+  cursor: zoom-in;
+  user-select: none;
 }
 
 .cardRight {
@@ -29,9 +31,44 @@
   width: 500px;
 }
 
+.card__brand {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+
+}
+
 .card__title {
   font-size: 20px;
   font-weight: 700;
+}
+
+.card__id {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.card__id__sku {
+  font-weight: 700;
+}
+
+.card__priceContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-color-2);
+}
+
+.card__price__discount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
 .card__input {
@@ -42,8 +79,8 @@
 }
 
 .hr {
-  margin: 20px 0;
-  border-top: 1px solid #ccc;
+  margin: 16px 0;
+  border: 0.5px solid #ccc;
 }
 
 .cardRight__icons {
@@ -57,7 +94,6 @@
 .cardRight__image .cardRight__img {
   width: 30px;
   object-fit: cover;
-
 }
 
 .cardRight__container {

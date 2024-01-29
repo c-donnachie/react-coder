@@ -54,11 +54,28 @@ export default function ItemDetail({ product }) {
           </div>
         </div>
         <div className={s.cardRight}>
+
+          <p className={s.card__brand}>{product.brand}</p>
+
           <h3 className={s.card__title}>{product.name}</h3>
+
+          <div className={s.card__id}>
+            <p className={s.card__id__sku}>SKU:</p>
+            <p>{product.id}</p>
+          </div>
+
           <hr className={s.hr} />
-          <p>{product.description}</p>
-          <p className="text">{formatCurrency(product.price)}</p>
-          <p>Precio</p>
+
+          {/* <p>{product.description}</p> */}
+
+          <div className={s.card__priceContainer}>
+            <p className={s.card__price__discount}>${formatCurrency(product.price)}</p>
+            <p>Precio Oferta</p>
+
+            <p className={s.card__price}>${formatCurrency(Number(product.price) + 20000)}</p>
+            <p>Precio Referencia</p>
+          </div>
+
           <hr className={s.hr} />
           <div>
             <AddToCartContainer product={product} />
@@ -87,7 +104,6 @@ export default function ItemDetail({ product }) {
 
           </div>
           {/* fin */}
-          <hr className={s.hr} />
 
 
         </div>
