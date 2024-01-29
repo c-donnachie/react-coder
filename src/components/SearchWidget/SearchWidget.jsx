@@ -15,6 +15,11 @@ export default function SearchWidget() {
     const handleKeyDown = (event) => {
         if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
             HandleFocus()
+            if (isInputFocused) {
+                resetSearchTerms()
+                inputRef.current.blur();
+                setIsInputFocused(false);
+            }
             event.preventDefault();
         }
     };
@@ -24,7 +29,7 @@ export default function SearchWidget() {
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, []);
+    }, [isInputFocused]);
 
 
     const results = !searchTerm
@@ -36,7 +41,7 @@ export default function SearchWidget() {
     const handleSearchTerms = (event) => {
         setSearchTerm(event.target.value)
         handleCloseCart()
-        HandleFocus()
+        setIsInputFocused(true)
     }
 
     const resetSearchTerms = () => {
@@ -44,7 +49,7 @@ export default function SearchWidget() {
         setIsInputFocused(false)
     }
 
-    const handleInputClick = () => {
+    const closeOverlay = () => {
         HandleFocus()
     }
 
@@ -53,7 +58,6 @@ export default function SearchWidget() {
             inputRef.current.focus();
             setIsInputFocused(true);
         }
-    
     }
 
 
@@ -63,15 +67,15 @@ export default function SearchWidget() {
                 <div className={s.overlay} onClick={resetSearchTerms}></div>
             ) : null}
             <div className={s.card}>
-            <input
-                ref={inputRef}
-                className={`${s.input} ${inputRef.current ? s.input__focus : ''}`}
-                type="search"
-                placeholder="¿Qué estás buscando?  ⌘ + K"
-                value={searchTerm}
-                onChange={handleSearchTerms}
-                onClick={handleInputClick}
-            />
+                <input
+                    ref={inputRef}
+                    className={`${s.input} ${inputRef.current ? s.input__focus : ''}`}
+                    type="search"
+                    placeholder="¿Qué estás buscando?  ⌘ + K"
+                    value={searchTerm}
+                    onChange={handleSearchTerms}
+                    onClick={closeOverlay}
+                />
                 <div className={`${s.cardSearch} ${searchTerm.length > 0 ? s.cardSearch__show : ''}`}>
                     {results.length > 0 ? (
                         results.map((product, index) => (
