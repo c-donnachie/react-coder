@@ -53,6 +53,8 @@
     position: absolute;
     padding-top: 10px;
     padding-bottom: 10px;
+    overflow-y: auto;
+    max-height: 20rem;
 }
 
 .cardSearch__show {
@@ -83,8 +85,9 @@
 }
 
 .cardSearch__image .cardSearch__img {
-    width: 60px;
-    height: 50px;
+    display: flex;
+    justify-content: center;
+    width: 55px;
     object-fit: cover;
 }
 

@@ -9,9 +9,14 @@ export default function ItemListContainer({ productsData, loading }) {
     <LoadingGif />
   ) : (
 
-    <div className={s.subContainer}>
-      <ItemList productsData={productsData} />
+    <div className={s.container}>
+
+      <div className={s.subContainer}>
+        <ItemList productsData={productsData} />
+        </div>
+        
     </div>
+
   )
 
 

@@ -1,9 +1,12 @@
 import s from './CreateProduct.module.css'
 import { useState } from 'react'
 import { collection, getFirestore, addDoc } from 'firebase/firestore'
-import Input from '../../components/Input/Input'
+import { useGetCategories } from '../../hooks/useCategory'
 
 export default function CreateProduct() {
+
+    const { categories } = useGetCategories('categories2')
+
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
@@ -59,10 +62,6 @@ export default function CreateProduct() {
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)} />
-                <Input
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
                 <label htmlFor="price">Price</label>
                 <input
                     className={s.card__input}
@@ -79,8 +78,17 @@ export default function CreateProduct() {
                 <label htmlFor="category">Category</label>
                 <select
                     name="category"
-                    id="category">
+                    id="category"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}>
+                    
+                    <option value="">Seleccione una categoría</option>
 
+                    {categories.map((categoryItem) => (
+                        <option key={categoryItem.id} value={categoryItem.name}>
+                            {categoryItem.name}
+                        </option>
+                    ))}
                 </select>
 
                 <label htmlFor="brand">Brand</label>

@@ -9,8 +9,17 @@ export default function ItemList({ productsData }) {
         productsData.map((product) => (
             <div className={s.card} key={product.id}>
                 <p className={s.card__brand}>{product.brand}</p>
-                <p className={s.card__category}>{product.category}</p>
-                <h2 className={s.card__title}>{truncateProductName(product.name, 100)}</h2>
+
+                <Link
+                    to={`/filtered?category=${product.category}`}
+                    className={s.card__category}>
+                    <p className={s.card__category}>{product.category}</p>
+                </Link>
+
+                <Link to={`/item/${product.id}`}>
+                    <h2 className={s.card__title}>{truncateProductName(product.name, 100)}</h2>
+                </Link>
+
                 <div className={s.card__image}>
                     <Link to={`/item/${product.id}`}>
                         <img

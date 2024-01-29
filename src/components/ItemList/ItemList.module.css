@@ -19,18 +19,18 @@
 
 
   .card__brand {
+    margin-top: 0.6rem;
     font-size: 12px;
     font-weight: bold;
     color: black;
-    margin: 10px 0;
     align-self: center;
   }
   
   .card__category {
+    margin-top: 0.3rem;
     font-size: 12px;
     font-weight: bold;
     color: var(--primary-color);
-    margin: 10px 0;
     align-self: center;
   }
   

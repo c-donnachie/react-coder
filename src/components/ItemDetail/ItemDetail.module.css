@@ -1,3 +1,5 @@
+@import '../../colors.css';
+
 .container {
   margin-top: 40px;
   display: flex;
@@ -36,7 +38,7 @@
   padding: 10px;
   font-size: 16px;
   border-radius: 4px;
-  width: 60px; 
+  width: 60px;
 }
 
 .hr {
@@ -74,11 +76,23 @@
 .cardRight__text {
   font-size: 0.7rem;
 }
+
+.cardRight__description {
+  color: var(--primary-color);
+  font-size: 0.7rem;
+}
+
+.cardRight__description:hover {
+  filter: brightness(1)
+}
+
+
 /* ==== */
 
 .zoom__container {
   overflow: hidden;
-  width: 500px; /* ajusta el tamaño del contenedor según sea necesario */
+  width: 500px;
+  /* ajusta el tamaño del contenedor según sea necesario */
   height: 500px;
 }
 
@@ -90,7 +104,8 @@
 }
 
 .zoom__container:hover img {
-  transform: scale(1.2); /* Ajusta el valor de escala según sea necesario */
+  transform: scale(1.2);
+  /* Ajusta el valor de escala según sea necesario */
 }
 
 .RelatedProducts {

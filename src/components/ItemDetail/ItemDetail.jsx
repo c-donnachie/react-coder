@@ -77,7 +77,7 @@ export default function ItemDetail({ product }) {
 
                   <div className={s.cardRight__subContainer}>
                     <p className={s.cardRight__text}>{item.name}</p>
-                    <p className={s.cardRight__text}>{item.description}</p>
+                    <p className={s.cardRight__description}>{item.description}</p>
                   </div>
 
                 </div>
