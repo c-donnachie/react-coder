@@ -12,3 +12,18 @@
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 0fr));
 }
+
+/* Media Queries */
+
+@media (width <= 390px) {
+  
+  .subContainer {
+  min-width: 0px;
+  }
+}
+
+@media (width <= 768px) {
+  .subContainer {
+  min-width: 400px;
+  }
+}

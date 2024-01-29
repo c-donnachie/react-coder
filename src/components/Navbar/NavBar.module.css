@@ -1,6 +1,5 @@
 @import '../../colors.css';
 
-
 nav {
   background: white;
   padding: 1.5rem;
@@ -16,14 +15,18 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   z-index: 3;
-
 }
 
 .logo {
   width: 10rem;
 }
 
+.mobile__logo {
+  display: none;
+}
+
 .brand {
+  display: block;
   font-size: 1.125rem;
   line-height: 1.75rem;
   font-weight: 700;
@@ -119,10 +122,54 @@ nav {
   width: 100%;
 }
 
+.cartTotal {
+  display: flex;
+}
+
 /* ==== */
 
 .center {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+}
+
+/* Media Querys */
+
+/* Mobile */
+@media (width <=390px) {
+
+  nav {
+    padding: 0.5rem;
+  }
+
+  .logo {
+    width: 8rem;
+  }
+  
+  .mobile__logo {
+    display: none;
+  }
+
+  .center {
+    display: none;
+  }
+
+  .cartTotal {
+    display: none;
+  }
+
+}
+
+/* Tablet */
+@media (width <= 768px) {
+
+  .logo{
+    display: none;
+  }
+
+  .mobile__logo {
+    display: block;
+    width: 2.4rem;
+  }
 }

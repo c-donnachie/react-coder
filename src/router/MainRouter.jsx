@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState, useEffect, useRef, lazy, Suspense } from "react"
 import Checkout from "../pages/Checkout/Checkout.jsx"
 import CompleteOrder from "../pages/CompleteOrder/CompleteOrder.jsx"
+import NavigationbarMobile from "../components/NavigationBarMobile/NavigationbarMobile.jsx"
 
 const Home = lazy(() => import('../pages/Home.jsx'));
 
@@ -98,7 +99,7 @@ export default function MainRouter() {
 
 
       </Routes>
-
+      <NavigationbarMobile/>
     </BrowserRouter>
   )
 }

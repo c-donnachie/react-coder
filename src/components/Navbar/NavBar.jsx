@@ -6,6 +6,7 @@ import { CartOpenContext } from "../../context/CartOpenContext"
 import { useGetCategories } from "../../hooks/useCategory"
 import s from "./NavBar.module.css"
 import logo from "../../assets/images/logo.svg"
+import logoMobile from "../../assets/images/logo-mobile.svg"
 
 export default function NavBar() {
   const { handleOpenCart } = useContext(CartOpenContext)
@@ -20,6 +21,7 @@ export default function NavBar() {
     <nav className={s.container}>
       <Link to="/" className={s.brand}>
         <img className={s.logo} src={logo} alt="logo" />
+        <img className={s.mobile__logo} src={logoMobile} alt="logo-mobile" />
       </Link>
 
       <section className={s.center}>
@@ -35,13 +37,13 @@ export default function NavBar() {
           </div>
         </div>
 
-        <div>
+        <div className={s.searchWidget}>
           <SearchWidget />
         </div>
 
       </section>
 
-      <div>
+      <div className={s.cartTotal}>
         <button onClick={handleOpenCart}>
           <CartTotal />
         </button>

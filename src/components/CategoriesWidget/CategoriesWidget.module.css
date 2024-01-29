@@ -41,3 +41,11 @@
   /* filter: brightness(0.5); */
   filter: contrast(1.2);
 }
+
+/* media querys */
+
+@media (width <=390px) {
+  .container {
+      display: none;
+  }
+}

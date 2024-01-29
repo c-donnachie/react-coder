@@ -1,0 +1,20 @@
+@import '../../colors.css';
+
+.container {
+    display: flex;
+    display: none;
+    justify-content: center;
+    padding: 1.2rem;
+    width: 100%;
+    background-color: white;
+    position: sticky;
+    bottom: 0;
+}
+
+/* media querys */
+
+@media (width <=390px) {
+    .container {
+        display: block;
+    }
+}

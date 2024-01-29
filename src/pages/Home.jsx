@@ -18,16 +18,6 @@ export default function Home() {
 
   const { productsData, loading } = useGetCollection('products')
 
-  // const content = loading ? (
-  //   <div className="content">
-  //     <div className="gif">
-  //       <Lottie animationData={loadingGif} />
-  //     </div>
-  //   </div>
-  // ) : (
-  //   <div>{productsData && <ItemListContainer productsData={productsData} />}</div>
-  // )
-
   return (
     <PrimaryLayout>
         <CategoriesWidget categories={categories} />
