@@ -1,5 +1,5 @@
 import s from './SearchWidget.module.css';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { useGetCollection } from '../../hooks/useProducts';
 import { Link } from 'react-router-dom';
 import { truncateProductName } from '../../helpers/formats';
@@ -10,6 +10,21 @@ export default function SearchWidget() {
     const [searchTerm, setSearchTerm] = useState('');
     const [isInputFocused, setIsInputFocused] = useState(false)
     const { handleCloseCart } = useContext(CartOpenContext);
+    const inputRef = useRef(null);
+
+    const handleKeyDown = (event) => {
+        if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+            HandleFocus()
+            event.preventDefault();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
 
 
     const results = !searchTerm
@@ -21,33 +36,42 @@ export default function SearchWidget() {
     const handleSearchTerms = (event) => {
         setSearchTerm(event.target.value)
         handleCloseCart()
+        HandleFocus()
     }
 
     const resetSearchTerms = () => {
         setSearchTerm('')
+        setIsInputFocused(false)
     }
 
     const handleInputClick = () => {
-        setIsInputFocused(!isInputFocused);
+        HandleFocus()
     }
 
+    const HandleFocus = () => {
+        if (inputRef.current) {
+            inputRef.current.focus();
+            setIsInputFocused(true);
+        }
+    
+    }
 
 
     return (
         <div className={s.searchContainer}>
-            {searchTerm.length > 0 && (
-                <div className={s.overlay} onClick={resetSearchTerms}>
-                </div>
-            )}
+            {isInputFocused ? (
+                <div className={s.overlay} onClick={resetSearchTerms}></div>
+            ) : null}
             <div className={s.card}>
-                <input
-                    className={`${s.input} ${searchTerm.length > 0 ? s.input__focus : ''}`}
-                    type="search"
-                    placeholder="¿Qué estás buscando?"
-                    value={searchTerm}
-                    onChange={handleSearchTerms}
-                    onClick={handleInputClick}
-                />
+            <input
+                ref={inputRef}
+                className={`${s.input} ${inputRef.current ? s.input__focus : ''}`}
+                type="search"
+                placeholder="¿Qué estás buscando?  ⌘ + K"
+                value={searchTerm}
+                onChange={handleSearchTerms}
+                onClick={handleInputClick}
+            />
                 <div className={`${s.cardSearch} ${searchTerm.length > 0 ? s.cardSearch__show : ''}`}>
                     {results.length > 0 ? (
                         results.map((product, index) => (
@@ -64,7 +88,7 @@ export default function SearchWidget() {
                                     />
                                 </div>
                                 <div className={s.cardSearch__name}>
-                                {truncateProductName(product.name, 40)}
+                                    {truncateProductName(product.name, 40)}
                                 </div>
                             </Link>
                         ))

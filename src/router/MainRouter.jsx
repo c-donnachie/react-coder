@@ -8,7 +8,6 @@ import Cart from "../pages/Cart/Cart.jsx"
 import CreateProduct from '../pages/CreateProduct/CreateProduct.jsx'
 import FilteredProducts from "../pages/FilteredProducts/FilteredProducts.jsx"
 import CartWidget from "../components/CartWidget/CartWidget.jsx"
-import NavbarPrevius from "../components/NavbarPrevious/NavbarPrevius.jsx"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -52,17 +51,14 @@ export default function MainRouter() {
     <BrowserRouter>
       <CartWidget />
 
-      {
-        scrolled ?
-          <NavbarPrevius />
-          :
+    
           <NavBar
             title="TECNOLOGIA"
             nameCategories="Categorias"
             categories={categories}
             buttons={buttons}
           />
-      }
+    
 
       <ToastContainer
         position="bottom-left"
@@ -82,6 +78,7 @@ export default function MainRouter() {
 
 
       <Routes>
+
         <Route
           path="/"
           element={

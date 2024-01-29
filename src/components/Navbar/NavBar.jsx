@@ -5,8 +5,9 @@ import { useContext } from "react"
 import { CartOpenContext } from "../../context/CartOpenContext"
 import { useGetCategories } from "../../hooks/useCategory"
 import s from "./NavBar.module.css"
+import logo from "../../assets/images/logo.svg"
 
-export default function NavBar({ title }) {
+export default function NavBar() {
   const { handleOpenCart } = useContext(CartOpenContext)
   const { categories } = useGetCategories('categories2')
 
@@ -16,29 +17,12 @@ export default function NavBar({ title }) {
     </Link>))
 
   return (
-    <div>
-      <nav className={s.mainNav}>
-        <div className={s.container}>
-          <Link to="/" className={s.brand}>
-            <div>
-              {title}
-            </div>
-          </Link>
-          <div>
-            <SearchWidget />
-          </div>
-          <div>
-            <button onClick={handleOpenCart}>
-              <CartTotal />
-            </button>
-          </div>
-        </div>
-      </nav>
+    <nav className={s.container}>
+      <Link to="/" className={s.brand}>
+        <img className={s.logo} src={logo} alt="logo" />
+      </Link>
 
-      {/* 2do nav categorias */}
-
-
-      <nav className={`${s.container} ${s.navbar2} `}>
+      <section className={s.center}>
 
         <div className={s.dropdown}>
           <button className={s.dropdown__button}>
@@ -51,17 +35,18 @@ export default function NavBar({ title }) {
           </div>
         </div>
 
+        <div>
+          <SearchWidget />
+        </div>
 
-        <Link to="/create">
-          <div className={s.textWhite}>Crear</div>
-        </Link>
-        {/* <Link to="/checkout">
-          <div className={s.textWhite}>Checkout</div>
-        </Link> */}
-        <Link to="/filtered">
-          <div className={s.textWhite}>Filtros</div>
-        </Link>
-      </nav>
-    </div>
+      </section>
+
+      <div>
+        <button onClick={handleOpenCart}>
+          <CartTotal />
+        </button>
+      </div>
+    </nav>
+
   )
 }

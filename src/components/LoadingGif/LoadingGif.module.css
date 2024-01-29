@@ -1,0 +1,11 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 15rem;
+}
+
+.gif {
+    width: 10rem;
+}
