@@ -39,7 +39,7 @@ export const CartProvider = ({ children }) => {
     const existingProduct = cart.findIndex((item) => item.id === product.id);
 
 
-    const totalPriceIncrement = Number(product.price);
+    const totalPriceIncrement = Number(product.price) * quantity;
 
     if (existingProduct !== -1) {
 

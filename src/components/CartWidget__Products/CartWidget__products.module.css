@@ -26,6 +26,7 @@
 
 .card__image__remove {
     display: none;
+    color: red;
 }
 
 .card__image:hover .card__image__remove {

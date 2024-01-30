@@ -6,8 +6,10 @@ import { formatCurrency, truncateProductName } from "../../helpers/formats";
 import ItemQuantitySelector from "../ItemQuantitySelector/ItemQuantitySelector";
 import Lottie from "lottie-react"
 import cartIsEmpyAnimation from "../../assets/animations/cartIsEmpy.json"
+import UseAnimations from "react-useanimations";
+import trash from 'react-useanimations/lib/trash';
 
-export default function CartWidget__Products({customHeight}) {
+export default function CartWidget__Products({ customHeight }) {
 
   const { cart, removeProduct } = useContext(CartContext);
 
@@ -25,9 +27,11 @@ export default function CartWidget__Products({customHeight}) {
 
                 <button onClick={() => removeProduct(product.id)}>
                   <div className={s.card__image}>
-                    <img className={s.card__image__remove}
-                      src={CloseIcon}
-                      alt="remove product"
+
+                    <UseAnimations
+                      animation={trash}
+                      size={30}
+                      className={s.card__image__remove}
                     />
 
                     <img
