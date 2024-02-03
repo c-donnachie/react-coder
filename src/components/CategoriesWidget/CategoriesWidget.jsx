@@ -6,6 +6,7 @@ export default function CategoriesWidget({ categories }) {
   const queryParams = new URLSearchParams(search);
   const currentCategory = queryParams.get('category');
 
+
   return (
     <div className={s.container}>
       {categories.map((category, index) => (

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useGetCollection } from '../../hooks/useProducts.jsx';
-// import FiltersWidget from '../../components/FiltersWidget/FiltersWidget.jsx';
+import FiltersWidget from '../../components/FiltersWidget/FiltersWidget.jsx';
 import s from './FilteredProducts.module.css';
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer.jsx';
 import PrimaryLayout from '../../layouts/PrimaryLayout.jsx';
@@ -33,6 +33,12 @@ const FilteredProduct = () => {
     }
   }, [category, brand, productsData]);
 
+  // Brands
+
+  const brands = productosFiltrados.map((product) => product.brand);
+  const uniqueBrands = [...new Set(brands)];
+  
+
 
   const withoutResults =
     loading ? <LoadingGif /> :
@@ -42,6 +48,7 @@ const FilteredProduct = () => {
 
   return (
     <PrimaryLayout>
+      {/* <FiltersWidget brands={uniqueBrands} /> */}
       <div className={s.container}>
 
         {productosFiltrados.length > 0 ? (

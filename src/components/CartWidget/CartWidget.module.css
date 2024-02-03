@@ -6,6 +6,7 @@
 }
 
 .cartWidget__overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -15,23 +16,27 @@
     z-index: 5;
 }
 
+.cartWidget__overlay_open {
+    display: block;
+}
+
 .cartWidget__card {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
-    right: -100px;
+    right: -450px;
     background-color: white;
     z-index: 10;
     width: 26rem;
     height: 100vh;
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
-    transition: right 2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: right 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     user-select: none;
 }
 
 .cartWidget__card_open {
-    right: 0;
+    right: 0px;
 }
 
 .cartWidget__card__header {

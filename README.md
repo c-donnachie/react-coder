@@ -31,7 +31,7 @@ Destacado en codigo:
 
 - Diseño responsivo
 - Login
-- Carrusel de imagenes y categrias
+- Carrusel de imagenes y categorias
 - Slidebar para administradores
 - Descripcion, Caracteriscas del producto
 
