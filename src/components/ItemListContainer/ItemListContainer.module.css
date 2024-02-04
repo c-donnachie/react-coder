@@ -3,27 +3,20 @@
   justify-content: center;
   padding: 2rem 2rem 4rem 2rem;
   min-height: 80vh;
-  place-items: center;
 }
 
 .subContainer {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
-  padding: 0rem 6rem 0rem 6rem;
-  grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  place-items: center;
 }
 
 /* Media Queries */
 
 @media (width <=390px) {
 
-  .subContainer {
-    min-width: 0px;
-    padding: 0rem 1rem 0rem 1rem;
-
-  }
 }
 
 @media (width <=768px) {

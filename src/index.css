@@ -48,6 +48,11 @@ div {
   font-size: 16px;
 }
 
+button {
+  touch-action: manipulation;
+  user-drag: none;
+}
+
 input,
 button,
 select,
