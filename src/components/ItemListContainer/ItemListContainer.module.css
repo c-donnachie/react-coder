@@ -3,12 +3,14 @@
   justify-content: center;
   padding: 2rem 2rem 4rem 2rem;
   min-height: 80vh;
+  place-items: center;
 }
 
 .subContainer {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  padding: 0rem 3rem 0rem 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   width: 100%;
   place-items: center;
 }
@@ -16,14 +18,17 @@
 /* Media Queries */
 
 @media (width <=390px) {
-  
+
   .subContainer {
     min-width: 0px;
+    padding: 0rem 1rem 0rem 1rem;
+
   }
 }
 
 @media (width <=768px) {
   .subContainer {
     min-width: 100%;
+    padding: 0rem 1rem 0rem 1rem;
   }
 }
