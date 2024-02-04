@@ -9,7 +9,7 @@
 .subContainer {
   display: grid;
   gap: 20px;
-  padding: 0rem 3rem 0rem 3rem;
+  padding: 0rem 2rem 0rem 2rem;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   width: 100%;
   place-items: center;
