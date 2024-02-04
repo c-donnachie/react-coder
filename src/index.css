@@ -1,5 +1,4 @@
 :root {
-  margin: 0;
   background-color: #000000;
 }
 
@@ -47,10 +46,8 @@ div {
 
 .contenedor-flex>* {
   font-size: 16px;
-  /* ajusta según sea necesario */
 }
 
-/* Estilos para resetear estilos predeterminados de inputs y botones */
 input,
 button,
 select,
@@ -66,7 +63,6 @@ textarea {
   outline: none;
 }
 
-/* Estilos específicos para el input de tipo number */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -74,12 +70,10 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 
-/* Estilos personalizados para el input y el botón */
 input {
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 60px;
-  /* Ajusta el ancho según tus necesidades */
 }

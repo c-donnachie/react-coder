@@ -6,12 +6,14 @@ import { useGetCollection } from "../hooks/useProducts.jsx"
 // import loadingGif from "../assets/animations/loading.json"
 import { useGetCategories } from "../hooks/useCategory.jsx"
 import PrimaryLayout from "../layouts/PrimaryLayout.jsx"
+import useScrollToTop from "../helpers/general.js"
 
 export default function Home() {
 
+  useScrollToTop()
 
   useEffect(() => {
-    document.title = "Home | React Router"
+    document.title = "Home | PC Factory"
   }, [])
 
   const { categories } = useGetCategories('categories2')

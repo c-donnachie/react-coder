@@ -6,7 +6,7 @@ import quote from '../../assets/iconsDetail/quote.svg'
 import card from '../../assets/iconsDetail/card.svg'
 import AddToCartContainer from '../../pages/ItemDetailContainer/components/AddToCartContainer/AddToCartContainer'
 import { useState } from 'react'
-import RelatedProducts from '../RelatedProducts/RelatedProducts'
+// import RelatedProducts from '../RelatedProducts/RelatedProducts'
 
 export default function ItemDetail({ product }) {
 
@@ -49,7 +49,7 @@ export default function ItemDetail({ product }) {
 
       <div className={s.cardContainer}>
         <div className={s.cardLeft}>
-          <div className={`${s.zoom__container} ${isZoomed ? s.zoomed : ''}`}>
+          <div className={`${s.card__img} ${s.zoom__container} ${isZoomed ? s.zoomed : ''}`}>
             <img className={s.card__img} src={product.image} alt={product.name} />
           </div>
         </div>

@@ -9,21 +9,21 @@ export default function ItemListContainer({ productsData, loading }) {
     <LoadingGif />
   ) : (
 
-    <div className={s.container}>
+    <section className={s.container}>
 
       <div className={s.subContainer}>
         <ItemList productsData={productsData} />
         </div>
         
-    </div>
+    </section>
 
   )
 
 
   return (
-    <div>
+    <>
       {content}
-    </div>
+    </>
   )
 
 }

@@ -49,7 +49,6 @@ const FilteredProduct = () => {
   return (
     <PrimaryLayout>
       {/* <FiltersWidget brands={uniqueBrands} /> */}
-      <div className={s.container}>
 
         {productosFiltrados.length > 0 ? (
           <ItemListContainer productsData={productosFiltrados} loading={loading} />
@@ -57,7 +56,6 @@ const FilteredProduct = () => {
           withoutResults
         )}
 
-      </div>
     </PrimaryLayout>
   );
 };

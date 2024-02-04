@@ -99,7 +99,8 @@ export default function MainRouter() {
 
 
       </Routes>
-      <NavigationbarMobile/>
+      <NavigationbarMobile />
+      
     </BrowserRouter>
   )
 }
