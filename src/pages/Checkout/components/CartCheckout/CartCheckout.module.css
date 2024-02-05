@@ -4,7 +4,8 @@
     background: white;
     width: 25rem;
     min-height: 20rem;
-
+    position: sticky;
+    top: 0;
 }
 
 .card__header {

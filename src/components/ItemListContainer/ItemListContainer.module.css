@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   padding: 2rem 2rem 4rem 2rem;
-  min-height: 80vh;
+  /* padding-left: min(0vmin, env(safe-area-inset-left));
+  padding-right: min(0vmin, env(safe-area-inset-right)); */
 }
 
 .subContainer {
@@ -16,7 +17,9 @@
 /* Media Queries */
 
 @media (width <=390px) {
-
+  .container {
+    padding: 2rem 0rem 4rem 0rem;
+  }
 }
 
 @media (width <=768px) {

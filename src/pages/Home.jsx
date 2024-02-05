@@ -9,7 +9,6 @@ import PrimaryLayout from "../layouts/PrimaryLayout.jsx"
 import useScrollToTop from "../helpers/general.js"
 
 export default function Home() {
-
   useScrollToTop()
 
   useEffect(() => {

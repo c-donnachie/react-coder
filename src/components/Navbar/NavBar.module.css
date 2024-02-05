@@ -137,10 +137,14 @@ nav {
 /* Media Querys */
 
 /* Mobile */
-@media (width <=390px) {
+@media (width <= 390px) {
 
   nav {
     padding: 0.5rem;
+  }
+
+  .container {
+    display: none;
   }
 
   .logo {

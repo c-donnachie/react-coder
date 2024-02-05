@@ -15,6 +15,7 @@ import { useState, useEffect, useRef, lazy, Suspense } from "react"
 import Checkout from "../pages/Checkout/Checkout.jsx"
 import CompleteOrder from "../pages/CompleteOrder/CompleteOrder.jsx"
 import NavigationbarMobile from "../components/NavigationBarMobile/NavigationbarMobile.jsx"
+import NavbarMobile from "../components/NavbarMobile/NavbarMobile.jsx"
 
 const Home = lazy(() => import('../pages/Home.jsx'));
 
@@ -52,14 +53,15 @@ export default function MainRouter() {
     <BrowserRouter>
       <CartWidget />
 
-    
-          <NavBar
-            title="TECNOLOGIA"
-            nameCategories="Categorias"
-            categories={categories}
-            buttons={buttons}
-          />
-    
+      <NavbarMobile />
+
+      <NavBar
+        title="TECNOLOGIA"
+        nameCategories="Categorias"
+        categories={categories}
+        buttons={buttons}
+      />
+
 
       <ToastContainer
         position="bottom-left"
@@ -99,8 +101,9 @@ export default function MainRouter() {
 
 
       </Routes>
-      <NavigationbarMobile />
       
+      <NavigationbarMobile />
+
     </BrowserRouter>
   )
 }

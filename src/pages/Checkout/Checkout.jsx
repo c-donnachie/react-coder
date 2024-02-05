@@ -70,30 +70,21 @@ export default function Checkout() {
     return (
 
         <PrimaryLayout>
-
             <div className={s.container}>
-
-
                 <div className={s.subContainer}>
-
                     {checkoutStateWidget}
-
                     <div className={s.stateContainer}>
                         {checkoutState === 1 && <LoginCheckOut />}
                         {checkoutState === 2 && <ShippingCheckout />}
                         {checkoutState === 3 && <PaymentCheckout />}
                     </div>
-
-
                 </div>
-
-
-                <div>
+                <div className={s.stickyContainer}>
                     <CartcheckOut />
                 </div>
-
             </div>
         </PrimaryLayout>
+
 
     )
 }

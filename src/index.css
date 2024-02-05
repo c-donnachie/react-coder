@@ -10,10 +10,12 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
   background-color: whitesmoke;
   font-family: 'Poppins', sans-serif;
+  overflow: scroll;
+  -webkit-font-smoothing: antialiased;
 }
+
 
 h1,
 h2,
@@ -50,7 +52,6 @@ div {
 
 button {
   touch-action: manipulation;
-  user-drag: none;
 }
 
 input,

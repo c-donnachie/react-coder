@@ -1,0 +1,28 @@
+nav {
+    background: white;
+    padding: 1.2rem;
+    box-shadow: 0 2px 4px hsl(0 4% 15% / 10%);
+    top: 0px;
+    position: sticky;
+    z-index: 3;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.goBack {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    color: red;
+}
+
+@media (width > 390px) {
+    nav {
+        display: none;
+    }
+}

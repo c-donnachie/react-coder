@@ -105,3 +105,7 @@
 .checkout__number__active {
     transform: scale(1.1);
 }
+.stickyContainer {
+    position: sticky;
+    top: 0;
+}

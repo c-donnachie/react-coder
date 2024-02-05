@@ -4,6 +4,7 @@ import { useGetCollection } from '../../hooks/useProducts';
 import { Link } from 'react-router-dom';
 import { truncateProductName } from '../../helpers/formats';
 import { CartOpenContext } from '../../context/CartOpenContext';
+import { useGoBack } from '../../hooks/useGoBack';
 
 export default function SearchWidget() {
     const { productsData } = useGetCollection('products');
@@ -60,14 +61,30 @@ export default function SearchWidget() {
         }
     }
 
+    // Input icon goBack
+    const { goBack, isNotHome } = useGoBack();
+
+    const handleIconGoBack = () => {
+        if (isNotHome) {
+            goBack()
+        }
+    }
+
 
     return (
         <div className={s.searchContainer}>
             {isInputFocused ? (
                 <div className={s.overlay} onClick={resetSearchTerms}></div>
             ) : null}
-            <div className={s.card}>
+            <div className={s.cardInput}>
+
+                <button className={s.cardInput__icon} onClick={handleIconGoBack}>
+                    {isNotHome ? "⬅️" : "🔍"}
+                </button>
+
                 <input
+
+                    autoComplete="off"
                     ref={inputRef}
                     className={`${s.input} ${inputRef.current ? s.input__focus : ''}`}
                     type="search"
@@ -76,6 +93,7 @@ export default function SearchWidget() {
                     onChange={handleSearchTerms}
                     onClick={closeOverlay}
                 />
+
                 <div className={`${s.cardSearch} ${searchTerm.length > 0 ? s.cardSearch__show : ''}`}>
                     {results.length > 0 ? (
                         results.map((product, index) => (

@@ -92,6 +92,7 @@
 /* Media Queries */
 @media (width <=390px) {
 
-
-
+  .card__image .card__img {
+    width: 100%;
+}
 }
