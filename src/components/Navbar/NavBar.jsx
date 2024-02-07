@@ -49,7 +49,7 @@ export default function NavBar() {
 
       <div className={s.cartTotal}>
         <button onClick={handleOpenCart}>
-          <CartTotal />
+          <CartTotal name="Carrito" />
         </button>
       </div>
     </nav>
