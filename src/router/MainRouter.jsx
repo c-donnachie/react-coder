@@ -10,43 +10,18 @@ import FilteredProducts from "../pages/FilteredProducts/FilteredProducts.jsx"
 import CartWidget from "../components/CartWidget/CartWidget.jsx"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import { useState, useEffect, useRef, lazy, Suspense } from "react"
+import { lazy, Suspense } from "react"
 import Checkout from "../pages/Checkout/Checkout.jsx"
 import CompleteOrder from "../pages/CompleteOrder/CompleteOrder.jsx"
 import NavigationbarMobile from "../components/NavigationBarMobile/NavigationbarMobile.jsx"
 import NavbarMobile from "../components/NavbarMobile/NavbarMobile.jsx"
+import { useMediaQuery } from '@react-hook/media-query';
 
 const Home = lazy(() => import('../pages/Home.jsx'));
 
 export default function MainRouter() {
   const { categories } = useGetCategories('categories2')
-  const [scrolled, setScrolled] = useState(false)
-  const contentRef = useRef(null)
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY
-      if (offset > 0) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (contentRef.current) {
-      contentRef.current.scrollIntoView({ behavior: "smooth" })
-    }
-  }, [scrolled])
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
 
   return (
@@ -62,23 +37,23 @@ export default function MainRouter() {
         buttons={buttons}
       />
 
-
-      <ToastContainer
-        position="bottom-left"
-        autoClose={2000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        stacked
-        draggable
-        draggablePercent={60}
-        pauseOnHover
-        theme="light"
-        trasition="bounce"
-      />
-
+      {!isMobile && (
+        <ToastContainer
+          position="bottom-left"
+          autoClose={2000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          stacked
+          draggable
+          draggablePercent={60}
+          pauseOnHover
+          theme="light"
+          trasition="bounce"
+        />
+      )}
 
       <Routes>
 
@@ -101,7 +76,7 @@ export default function MainRouter() {
 
 
       </Routes>
-      
+
       <NavigationbarMobile />
 
     </BrowserRouter>

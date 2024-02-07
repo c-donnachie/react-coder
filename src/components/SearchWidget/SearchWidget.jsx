@@ -6,6 +6,10 @@ import { truncateProductName } from '../../helpers/formats';
 import { CartOpenContext } from '../../context/CartOpenContext';
 import { useGoBack } from '../../hooks/useGoBack';
 
+// Icons
+import BackIcon from '../../assets/icons/Arrow-Left.svg';
+import SearchIcon from '../../assets/icons/Search.svg';
+
 export default function SearchWidget() {
     const { productsData } = useGetCollection('products');
     const [searchTerm, setSearchTerm] = useState('');
@@ -79,7 +83,7 @@ export default function SearchWidget() {
             <div className={s.cardInput}>
 
                 <button className={s.cardInput__icon} onClick={handleIconGoBack}>
-                    {isNotHome ? "⬅️" : "🔍"}
+                    {isNotHome ? <img src={BackIcon} alt="goBack" /> : <img src={SearchIcon} alt="search" />}
                 </button>
 
                 <input

@@ -83,12 +83,24 @@ nav {
 }
 
 .dropdown__button {
+  display: flex;
   background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
   border: none;
   color: black;
   font-size: 1.125rem;
   line-height: 1.75rem;
   padding: 0px 1.8rem;
+}
+
+.dropdown__buttonIcon {
+  transform: rotate(270deg);
+}
+
+.dropdown:hover .dropdown__buttonIcon {
+  transform: rotate(0deg);
 }
 
 .dropdown__content {

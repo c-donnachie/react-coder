@@ -84,6 +84,10 @@
   color: var(--primary-color);
 }
 
+.card__priceDesc {
+  font-size: 14px;
+}
+
 .card__button {
   display: flex;
   margin: 2px 12px;
@@ -92,7 +96,50 @@
 /* Media Queries */
 @media (width <=390px) {
 
+  .card {
+    width: 300px;
+  }
+
+  .card__brand {
+    margin-top: 0.5rem;
+    font-size: 10px;
+    font-weight: bold;
+  }
+
+  .card__category {
+    margin-top: 0.1rem;
+    font-size: 10px;
+  }
+
+  .card__title {
+    max-height: 60px;
+    min-height: 60px;
+    font-size: 12px;
+    margin: 0.1rem 10px;
+  }
+
   .card__image .card__img {
     width: 100%;
-}
+  }
+
+  .card__priceFooter {
+    padding: 0.1rem;
+    margin-left: 10px;
+    gap: 6px;
+  }
+  
+  .card__price {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .card__priceDesc {
+    font-size: 12px;
+  }
+  
+  .card__button {
+    display: flex;
+    margin: 2px 12px;
+  }
+
 }

@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext"
 import cartIcon from "../../assets/icons/Cart.svg"
 import s from "./CartTotal.module.css"
 
-export default function CartTotal() {
+export default function CartTotal({name}) {
 
   const { totalQuantity, addToCart } = useContext(CartContext)
   const [buyAnimationActive, setBuyAnimationActive] = useState(false);
@@ -24,7 +24,7 @@ export default function CartTotal() {
           <p className={s.cart__totalValue}>{totalQuantity}</p>
         </div>
       </div>
-      <p>Carrito</p>
+      <p>{name}</p>
     </div>
   )
 }

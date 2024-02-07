@@ -7,6 +7,7 @@ import { useGetCollection } from "../hooks/useProducts.jsx"
 import { useGetCategories } from "../hooks/useCategory.jsx"
 import PrimaryLayout from "../layouts/PrimaryLayout.jsx"
 import useScrollToTop from "../helpers/general.js"
+import CarouselSwiper from "../components/CarouselSwiper/CarouselSwiper.jsx"
 
 export default function Home() {
   useScrollToTop()
@@ -21,6 +22,7 @@ export default function Home() {
 
   return (
     <PrimaryLayout>
+        <CarouselSwiper />
         <CategoriesWidget categories={categories} />
         <ItemListContainer productsData={productsData} loading={loading} />
     </PrimaryLayout>

@@ -3,8 +3,16 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 20px;
   justify-content: center;
+  gap: 20px;
+  user-select: none;
+}
+.containerMovil {
+  display: none;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   user-select: none;
 }
 
@@ -44,8 +52,14 @@
 
 /* media querys */
 
-@media (width <=390px) {
-  .container {
-      display: none;
+@media (width <= 390px) {
+  
+  .card__image .card__img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .card__title {
+    font-size: 0.8rem;
   }
 }

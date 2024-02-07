@@ -1,0 +1,13 @@
+.banner__image .banner__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (width <= 390px) {
+    .banner__image .banner__img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}

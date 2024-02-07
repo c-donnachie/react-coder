@@ -32,7 +32,7 @@ export default function ItemList({ productsData }) {
                             <div className={s.card__priceFooter}>
                                 <div>
                                     <p className={s.card__price}>${formatCurrency(product.price)}</p>
-                                    <p>precio oferta</p>
+                                    <p className={s.card__priceDesc}>precio oferta</p>
                                 </div>
                                 <div className={s.card__button}>
                                     <AddToCartButton product={product} />
