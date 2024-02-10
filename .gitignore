@@ -8,7 +8,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-.env
 .firebase
 build
 dist
@@ -16,7 +15,6 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.env
 .fireserc
 .firebase.json
 .vscode/*
